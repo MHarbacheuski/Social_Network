@@ -6,4 +6,7 @@ Social Network is name "Friends of interest"
 
 * Database: Postgres
 
-
+Перед запуском проекта необходимо сделать следующее:
+1. Из database.yml.sample скопировать config в database.yml
+# mv config/database.yml.sample config/database.yml
+2. Для запуска проекта используется следующая команда в терминале: rails s
