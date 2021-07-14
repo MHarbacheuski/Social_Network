@@ -18,10 +18,6 @@
 
   <body>
   <nav class="topnav">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
     <%= render 'include/auth/auth_header' %>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
@@ -40,10 +36,6 @@
         <%= link_to "Russian", { :locale=>'ru' } %>
       <%end%>
   </nav>
-  <div class="background_image">
-
-
-  </div>
   <%= render 'include/main/notification' %>
     <%= yield %>
   </body>

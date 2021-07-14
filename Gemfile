@@ -32,6 +32,7 @@ gem 'devise'
 gem 'pry'
 gem 'pry-byebug'
 gem 'simple_form'
+gem 'materialize-sass', '~> 1.0.0'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootstrap', '~> 5.0.1'
 

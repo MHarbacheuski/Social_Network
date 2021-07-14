@@ -8,8 +8,6 @@
   <%= link_to 'Edit', edit_user_registration_path,
               class: "btn btn-dark" %>
 <% else %>
-  <%= link_to 'Sign in', new_user_session_path,
-              class: "btn btn-dark" %>
-  <%= link_to 'Registration', new_user_registration_path,
-              class: "btn btn-dark" %>
+  <%= link_to 'Sign in', new_user_session_path%>
+  <%= link_to 'Registration', new_user_registration_path%>
 <% end %>

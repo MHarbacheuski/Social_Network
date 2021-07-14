@@ -1,9 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Arvo:700');
 @import url('https://fonts.googleapis.com/css?family=Seaweed+Script');
-@import "bootstrap";
+@import 'materialize';
 #boxy{
   background: image-url('1.jpg') no-repeat;
-
 }
 body {
   background-image: image-url('1.png');
@@ -12,6 +11,17 @@ body {
   background: url(1.jpg)  no-repeat center center;
   background-size: 100%;
   font-weight: normal;
+}
+
+.container{
+  width: 60%;
+  max-width:initial;
+  > .row{
+    margin: 0;
+    > .col{
+      padding: 0;
+    }
+  }
 }
 //h2 {
 //  position	: absolute;
