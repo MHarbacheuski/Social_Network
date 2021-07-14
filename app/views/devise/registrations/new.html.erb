@@ -1,0 +1,43 @@
+<% content_for(:title, 'Sign Up') %>
+<div class="d-flex justify-content-center flex-lg-row flex-md-row flex-column mt-5">
+  <%= render 'devise/shared/form' %>
+  <div class="pb-5 col-lg-5 col-md-5">
+    <%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <div class="pt-2 shadow pb-4 mt-5 container col-lg-7 col-md-12 mb-5">
+        <div class="field">
+          <%= f.text_field :username, autofocus: true, autocomplete: "username", class: "bg-light" %>
+        </div>
+
+        <div class="field">
+          <%= f.email_field :email, autocomplete: "email", class: "bg-light" %>
+        </div>
+
+        <div class="field">
+          <%= f.password_field :password, autocomplete: "new-password", class: "bg-light" %>
+        </div>
+
+        <div class="field">
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "bg-light" %>
+        </div>
+
+        <div class="actions d-flex justify-content-center mt-3">
+          <%= f.submit "Sign up" %>
+        </div>
+        <p class="text-center mt-3">OR</p>
+        <%- if devise_mapping.omniauthable? %>
+          <%- resource_class.omniauth_providers.each do |provider| %>
+            <%= link_to omniauth_authorize_path(resource_name, provider), class: "btn shadow btn-block btn-primary text-white mb-1" do %>
+              <i class="fab fa-facebook"></i> Sign up with <%= OmniAuth::Utils.camelize(provider) %>
+            <% end %>
+          <% end %>
+        <% end %>
+        <p class="text-muted small text-center text-dark mt-2">By continuing, you agree to Kartmans <strong>Terms of Service, Privacy policy</strong>.</p>
+        <div class="d-flex justify-content-center mt-4">
+          <%- if controller_name != 'sessions' %>
+            <%= link_to "Already have an account? Log in", new_session_path(resource_name), class: "small text-decoration-none text-center" %><br />
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
