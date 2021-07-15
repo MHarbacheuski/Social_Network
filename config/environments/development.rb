@@ -3,6 +3,9 @@
 require 'active_support/core_ext/integer/time'
 
 Rails.application.configure do
+  ENV['GOOGLE_CLIENT_ID'] = '209716765770-2l5bumj7s635mts1bo2had8bfidpt29g.apps.googleusercontent.com'
+  ENV['GOOGLE_CLIENT_SECRET'] = 'Dbz8ChNcdxz_igtHq_Xbx174'
+
   config.cache_classes = false
 
   # Do not eager load code on boot.

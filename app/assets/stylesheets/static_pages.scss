@@ -4,7 +4,11 @@
 #boxy{
   background: image-url('1.jpg') no-repeat;
 }
-
+body {
+  background-image: image-url('1.jpg');
+  background-size: 100%;
+  font-weight: normal;
+}
 .background_image {
   background: url(1.jpg)  no-repeat center center;
   background-size: 100%;
@@ -12,7 +16,7 @@
 }
 
 .container{
-  width: 60%;
+  width: 100%;
   max-width:initial;
   > .row{
     margin: 0;
@@ -29,10 +33,14 @@
 //  text-shadow:
 //        1px 1px 1px silver,
 //        -1px 1px 1px silver;
-//  color: white;
+//  color: red;
 //  transition: all .5s;
 //}
-
+.background_image {
+  background: url(1.jpg)  no-repeat center center;
+  background-size: 100%;
+  font-weight: normal;
+}
 .topnav {
   background-color: #333;
   overflow: hidden;
@@ -60,11 +68,36 @@
   color: white;
 }
 
+.plate {
+  width: 410px;
+  margin: 10% auto;
+}
+.shadow {
+  color: #fff;
+  font-family: Arvo;
+  font-weight: bold;
+  text-shadow:
+          -3px -3px 0 #222,
+          3px -3px 0 #222,
+          -3px 3px 0 #222,
+          3px 3px 0 #222,
+          4px 4px 0 #fff,
+          5px 5px 0 #fff,
+          6px 6px 0 #fff,
+          7px 7px 0 #fff;
+  line-height: 0.8em;
+  letter-spacing: 0.1em;
+  transform: scaleY(0.7);
+  -webkit-transform: scaleY(0.7);
+  -moz-transform: scaleY(0.7);
+  margin:0;
+  text-align: center;
+}
 .script {
   font-family: "Seaweed Script";
   color: #fff;
   text-align: center;
-  font-size: 75px;
+  font-size: 40px;
   position: relative;
   margin:0;
 }
@@ -72,6 +105,7 @@
   color: indigo;
   padding: 0 0.3em;
 }
+
 .text1 {
   font-size: 60px;
 }
@@ -81,4 +115,3 @@
 .text3 {
   font-size: 100px;
 }
-

@@ -29,12 +29,14 @@ gem 'rubocop', require: false
 gem 'bootsnap', require: false
 gem 'bootstrap_form'
 gem 'devise'
+gem 'materialize-sass', '~> 1.0.0'
 gem 'pry'
 gem 'pry-byebug'
 gem 'simple_form'
-gem 'materialize-sass', '~> 1.0.0'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootstrap', '~> 5.0.1'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-rails_csrf_protection'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

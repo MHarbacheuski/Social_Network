@@ -29,11 +29,7 @@
         </div>
         <p class="text-center mt-3">OR</p>
         <%- if devise_mapping.omniauthable? %>
-          <%- resource_class.omniauth_providers.each do |provider| %>
-            <%= link_to omniauth_authorize_path(resource_name, provider), class: "btn shadow btn-block btn-primary text-white mb-1" do %>
-              <i class="fab fa-facebook"></i> Sign up with <%= OmniAuth::Utils.camelize(provider) %>
-            <% end %>
-          <% end %>
+          <%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path, method: :post %>
         <% end %>
         <p class="text-muted small text-center text-dark mt-2">By continuing, you agree to Kartmans <strong>Terms of Service, Privacy policy</strong>.</p>
         <div class="d-flex justify-content-center mt-4">
