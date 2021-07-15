@@ -97,12 +97,21 @@ body {
   font-family: "Seaweed Script";
   color: #fff;
   text-align: center;
-  font-size: 40px;
+  font-size: 60px;
   position: relative;
   margin:0;
 }
+.script:before {
+  content:"";
+  display: block;
+  position: absolute;
+  z-index:-1;
+  top: 50%;
+  width: 100%;
+  border-bottom: 3px solid #fff;
+}
 .script span {
-  color: indigo;
+  color: greenyellow;
   padding: 0 0.3em;
 }
 
