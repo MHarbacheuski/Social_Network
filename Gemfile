@@ -36,6 +36,7 @@ gem 'simple_form'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootstrap', '~> 5.0.1'
 gem 'figaro'
+gem 'haml'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-rails_csrf_protection'
 

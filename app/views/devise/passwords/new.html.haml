@@ -1,0 +1,13 @@
+- content_for(:title, 'Forgot Password')
+.container
+  .container
+    .section-heading.fadeIn.animated{:style => "visibility: visible; animation-name: fadeIn;"}
+      %h1.title Please enter email
+  = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+    .pt-2.shadow.pb-4.mt-5.container.col-lg-5.mb-5.col-md-6
+      .field
+        = f.label :email, "Email"
+        %br/
+        = f.email_field :email, autofocus: true, autocomplete: "email", class: "text-black bg-light"
+      .actions.mt-3
+        = f.submit "Send me reset password instructions", class: "btn btn-default btn-primary"
