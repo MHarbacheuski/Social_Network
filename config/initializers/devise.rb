@@ -2,7 +2,8 @@
 
 Devise.setup do |config|
   config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
-
+  google_client_id = Rails.application.credentials.google[:google_client_id]
+  google_client_secret = Rails.application.credentials.google[:google_client_secret]
   # available as additional gems.
   require 'devise/orm/active_record'
 
@@ -26,6 +27,6 @@ Devise.setup do |config|
 
   config.sign_out_via = :delete
 
-  config.omniauth :google_oauth2, ENV['GOOGLE_CLIENT_ID'], ENV['GOOGLE_CLIENT_SECRET']
+  config.omniauth :google_oauth2, google_client_id, google_client_secret
   # { scope: 'email', info_fields: 'email, name' }
 end
