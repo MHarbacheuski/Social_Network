@@ -1,13 +1,13 @@
 <% if user_signed_in? %>
   <a href="#" class="btn btn-dark">
-    Добро Пожаловать, <%= current_user.email %>
+    <%= t('include.auth.welcome') %>, <%= current_user.username %>
   </a>
-  <%= link_to 'Exit', destroy_user_session_path,
+  <%= link_to t('include.auth.exit'), destroy_user_session_path,
               method: :delete,
               class: "btn btn-dark" %>
-  <%= link_to 'Edit', edit_user_registration_path,
+  <%= link_to t('include.auth.edit'), edit_user_registration_path,
               class: "btn btn-dark" %>
 <% else %>
-  <%= link_to 'Sign in', new_user_session_path%>
-  <%= link_to 'Registration', new_user_registration_path%>
+  <%= link_to t('include.auth.sign_in'), new_user_session_path %>
+  <%= link_to t('include.auth.sign_up'), new_user_registration_path %>
 <% end %>

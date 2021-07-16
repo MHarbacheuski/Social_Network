@@ -30,4 +30,22 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  controllers:
+    user:
+    successfully_updated: 'Profile successfully updated'
+  layouts:
+    application:
+      home: 'Start Page'
+      theme_project: 'Social Network'
+      welcome: 'Welcome!'
+      sign_in: "Let's sign in"
+      or: 'or'
+      sign_up: 'Registration'
+      name: 'with Friends of interest'
+  include:
+    auth:
+      exit: 'Exit'
+      edit: 'Edit'
+      sign_in: 'Sign in'
+      sign_up: 'Sign up'
+      welcome: 'Welcome'

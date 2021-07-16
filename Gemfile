@@ -35,9 +35,9 @@ gem 'pry-byebug'
 gem 'simple_form'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootstrap', '~> 5.0.1'
+gem 'figaro'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-rails_csrf_protection'
-gem "figaro"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

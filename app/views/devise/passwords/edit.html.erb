@@ -8,18 +8,19 @@
 
     <div class="pt-2 shadow pb-4 mt-5 container col-lg-5 mb-5 col-md-6">
       <div class="field">
-        <%= f.label :password, "New password" %><br />
+        <%= f.label :password, "New password" %><br/>
         <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class: "text-black bg-light" %>
       </div>
 
       <div class="field">
-        <%= f.label :password_confirmation, "Confirm new password" %><br />
+        <%= f.label :password_confirmation, "Confirm new password" %><br/>
         <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "text-black bg-light" %>
       </div>
 
       <div class="actions mt-3">
-        <%= f.submit "Change my password", class: "btn btn-default btn-primary"%>
+        <%= f.submit "Change my password", class: "btn btn-default btn-primary" %>
       </div>
+
       <div class="actions mt-3">
         <%= render "devise/shared/links" %>
       </div>
