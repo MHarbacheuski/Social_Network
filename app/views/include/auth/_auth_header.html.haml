@@ -1,7 +1,7 @@
 - if user_signed_in?
   %a.btn.btn-dark{:href => "#"}
     = t('include.auth.welcome')
-    , #{current_user.user_first_name} #{current_user.user_second_name}
+    , #{current_user.first_name} #{current_user.second_name}
   = link_to t('include.auth.exit'), destroy_user_session_path,
     method: :delete,
     class: "btn btn-dark"
