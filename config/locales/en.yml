@@ -41,11 +41,11 @@ en:
       sign_in: "Let's sign in"
       or: 'or'
       sign_up: 'Registration'
-      name: 'with Friends of interest'
+      name: 'Friends of interest'
   include:
     auth:
       exit: 'Exit'
-      edit: 'Edit'
+      edit: 'Edit Account'
       sign_in: 'Sign in'
       sign_up: 'Sign up'
       welcome: 'Welcome'

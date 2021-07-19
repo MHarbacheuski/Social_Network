@@ -62,6 +62,8 @@ Rails.application.configure do
 
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
+  config.active_storage.service = :local
+
   config.action_mailer.delivery_method = :smtp
   host = 'localhost:3000' # replace with your own url
   config.action_mailer.default_url_options = { host: host }

@@ -11,11 +11,31 @@
   font-weight: normal;
 }
 
+.profile_image{
+  border-radius: 10%;
+  height: 40px;
+  width: 40px;
+}
+
+.center-content {
+  display: block;
+  text-align: center;
+  margin-right:auto;
+  margin-left:auto;
+}
+
+.medium-profile-image {
+  border-radius: 50%;
+  height: 250px;
+  width: 250px;
+  margin: auto;
+}
+
 .container{
   width: 60%;
   max-width:initial;
   > .row{
-    margin: 0;
+    margin: 20px;
     > .col{
       padding: 0;
     }
