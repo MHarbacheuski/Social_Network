@@ -22,5 +22,13 @@
         - if @user == current_user
           %h5.center-content
             = link_to "Edit your profile", edit_user_path(current_user), class:"waves-effect waves-light btn-small"
+          %h5.center-content
+            = link_to "Edit your interests", new_users_interest_path(user_id: current_user), class:"waves-effect waves-light btn-small"
     .col-md-4
   %hr/
+  - if @user.interests
+    %p.center-content
+    %span Interests:
+    %p.center-content
+    - @user.interests.each do |interest|
+      = interest.title

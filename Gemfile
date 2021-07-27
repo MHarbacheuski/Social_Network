@@ -28,13 +28,13 @@ gem 'rubocop', require: false
 # gem 'image_processing', '~> 1.2'
 gem 'bootsnap', require: false
 gem 'bootstrap_form'
+gem 'jquery-turbolinks'
 gem 'devise'
-gem 'materialize-sass', '~> 1.0.0'
+gem 'materialize-sass'
 gem 'pry'
 gem 'pry-byebug'
 gem 'simple_form'
 # Reduces boot times through caching; required in config/boot.rb
-gem 'bootstrap', '~> 5.0.1'
 gem 'factory_bot'
 gem 'figaro'
 gem 'haml'

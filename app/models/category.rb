@@ -1,3 +1,3 @@
 class Category < ApplicationRecord
-  belongs_to :interest
+  has_many :interests
 end

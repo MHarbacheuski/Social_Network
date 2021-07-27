@@ -10,6 +10,10 @@ class ApplicationController < ActionController::Base
     I18n.with_locale(locale, &action)
   end
 
+  def after_sign_in_path_for(resource)
+    user_path(resource)
+  end
+
   protected
 
   def configure_permitted_parameters

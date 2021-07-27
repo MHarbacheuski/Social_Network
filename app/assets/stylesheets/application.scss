@@ -1,10 +1,17 @@
 @import url('https://fonts.googleapis.com/css?family=Arvo:700');
 @import url('https://fonts.googleapis.com/css?family=Seaweed+Script');
 @import 'materialize';
+
 #boxy{
   background: image-url('1.jpg') no-repeat;
 }
-
+[type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+  position: static!important;
+  left: 0px!important;
+  opacity: 1!important;
+  visibility: visible!important;
+  pointer-events: all!important;
+}
 .background_image {
   background: url(1.jpg)  no-repeat center center;
   background-size: 100%;
