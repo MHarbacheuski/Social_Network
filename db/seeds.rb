@@ -1,10 +1,10 @@
 require 'faker'
 
 beer = Category.create!(name: "Beer")
-prog_language= Category.create!(name: "Programming Languages")
+prog_language = Category.create!(name: "Programming Languages")
 animals = Category.create!(name: "Animals")
 food = Category.create!(name: "Food")
-hobby =Category.create!(name: "Hobby")
+hobby = Category.create!(name: "Hobby")
 games = Category.create!(name: "Games")
 
 4.times do
