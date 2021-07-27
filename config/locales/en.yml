@@ -2,6 +2,10 @@ en:
   controllers:
     user:
     successfully_updated: 'Profile successfully updated'
+    post:
+    update: 'Post was updated'
+    destroy: 'Post successfully destroyed'
+    create: 'Post successfully created'
   layouts:
     application:
       home: 'Start Page'

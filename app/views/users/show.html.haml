@@ -34,3 +34,8 @@
     %p.center-content
     - @user.interests.each do |interest|
       = interest.title
+    %br/
+    %br/
+    %span Posts:
+    %ol.posts
+    = render @posts

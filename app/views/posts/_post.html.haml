@@ -1,0 +1,13 @@
+%li{id: "post-#{post.id}"}
+  %span.user= link_to post.user.username, post.user
+  %span.content
+    = post.heading
+    = post.content
+    = image_tag post.picture.url if post.picture?
+  %span.timestamp
+    Posted #{time_ago_in_words(post.created_at)} ago.
+  - if current_user.posts
+    = link_to "edit", edit_post_path(id: post.id)
+    = link_to "delete", post, method: :delete,
+       data: { confirm: "You sure?" }
+
