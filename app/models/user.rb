@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_one_attached :avatar
   has_many :user_interests
   has_many :interests, through: :user_interests
+  has_many :posts, dependent: :destroy
 
   def self.from_omniauth(provider_data)
     where(provider: provider_data.provider, uid: provider_data.uid).first_or_create do |user|

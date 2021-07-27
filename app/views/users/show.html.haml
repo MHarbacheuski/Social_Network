@@ -24,6 +24,8 @@
             = link_to "Edit your profile", edit_user_path(current_user), class:"waves-effect waves-light btn-small"
           %h5.center-content
             = link_to "Edit your interests", new_users_interest_path(user_id: current_user), class:"waves-effect waves-light btn-small"
+          %h5.center-content
+            = link_to "Create your post", new_post_path(user_id: current_user), class:"waves-effect waves-light btn-small"
     .col-md-4
   %hr/
   - if @user.interests
