@@ -28,14 +28,15 @@ gem 'rubocop', require: false
 # gem 'image_processing', '~> 1.2'
 gem 'bootsnap', require: false
 gem 'bootstrap_form'
-gem 'jquery-turbolinks'
 gem 'devise'
+gem 'jquery-turbolinks'
 gem 'materialize-sass'
 gem 'pry'
 gem 'pry-byebug'
 gem 'simple_form'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'factory_bot'
+gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
 gem 'figaro'
 gem 'haml'
 gem 'omniauth-google-oauth2'
