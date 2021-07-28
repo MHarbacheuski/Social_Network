@@ -1,0 +1,13 @@
+= simple_form_for :user_interest, url: users_interests_path do |f|
+  - @categories.each do |category|
+    %br/
+    = category.name
+    .col-1
+    - category.interests.each do |interest|
+      = interest.title
+      = check_box_tag 'interest_ids[]', interest.id
+  .actions
+  = f.button :submit, class: "btn text-white rounded-pill bg-color"
+
+
+

@@ -5,8 +5,10 @@ Rails.application.routes.draw do
   get 'static_pages/help'
   get 'static_pages/about'
 
-  devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks' }
+  devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks', registrations: "registrations" }
+
   resources :users
+  resources :users_interests
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  root to: 'static_pages#home'
+  root to: "users_interests#new"
 end

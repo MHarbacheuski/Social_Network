@@ -1,0 +1,34 @@
+.container
+  .row
+    .col-md-4
+    .col-md-4
+      .container
+        - if @user.avatar.attached?
+          = image_tag @user.avatar ,:class=>"medium-profile-image center-content"
+        - if @user.username
+          %h3.center-content
+            = @user.username
+        - if @user.first_name && @user.second_name
+          %h4.center-content
+            #{@user.first_name} #{@user.second_name}
+        %h5.center-content
+          = @user.email
+        - if @user.bio
+          %p.center-content
+            = @user.bio
+        - if @user.birthday
+          %p.center-content
+            = @user.birthday
+        - if @user == current_user
+          %h5.center-content
+            = link_to "Edit your profile", edit_user_path(current_user), class:"waves-effect waves-light btn-small"
+          %h5.center-content
+            = link_to "Edit your interests", new_users_interest_path(user_id: current_user), class:"waves-effect waves-light btn-small"
+    .col-md-4
+  %hr/
+  - if @user.interests
+    %p.center-content
+    %span Interests:
+    %p.center-content
+    - @user.interests.each do |interest|
+      = interest.title

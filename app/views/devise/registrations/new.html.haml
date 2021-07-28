@@ -16,7 +16,12 @@
           = f.label :second_name, "SecondName"
           %br/
           = f.text_field :second_name, autofocus: true, autocomplete: "user_second_name", class: "bg-light"
+        .custom-file
+          = f.label :avatar,class:"custom-file-label"
+          %br/
+          = f.file_field :avatar,class:"custom-file-input"
         .field
+          %br/
           = f.label :email, "Email"
           %br/
           = f.email_field :email, autocomplete: "email", class: "bg-light"

@@ -1,8 +1,27 @@
-# frozen_string_literal: true
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require 'faker'
+
+beer = Category.create!(name: "Beer")
+prog_language= Category.create!(name: "Programming Languages")
+animals = Category.create!(name: "Animals")
+food = Category.create!(name: "Food")
+hobby =Category.create!(name: "Hobby")
+games = Category.create!(name: "Games")
+
+4.times do
+  Interest.create!(title: Faker::Beer.brand, category: beer)
+end
+4.times do
+  Interest.create!(title: Faker::ProgrammingLanguage.name, category: prog_language)
+end
+4.times do
+  Interest.create!(title: Faker::Creature::Animal.name, category: animals)
+end
+4.times do
+  Interest.create!(title: Faker::Food.fruits, category: food)
+end
+4.times do
+  Interest.create!(title: Faker::Hobby.activity, category: hobby)
+end
+4.times do
+  Interest.create!(title: Faker::Esport.game, category: games)
+end

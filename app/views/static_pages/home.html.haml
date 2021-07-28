@@ -1,9 +1,12 @@
-.plate
-  %p.script
-    %span= t('layouts.application.theme_project')
-  %p.shadow.text1= t('layouts.application.welcome')
-  %p.shadow.text1= t('layouts.application.sign_in')
-  %p.shadow.text2= t('layouts.application.or')
-  %p.shadow.text1= t('layouts.application.sign_up')
-  %p.script
-    %span= t('layouts.application.name')
+.card
+  %h5.entry-title
+    %a(href="http://www.ariona.net")
+      = t('layouts.application.theme_project')
+      = t('layouts.application.sign_in')
+    %small
+      = t('layouts.application.or')
+      %a(href="http://www.ariona.net")= t('layouts.application.sign_up')
+    %span See details for walkthrough
+    %span
+      Name:
+      %a(href="https://codepen.io/ariona/pen/JopOOr" target="_blank")= t('layouts.application.name')

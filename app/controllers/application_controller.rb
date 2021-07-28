@@ -10,11 +10,15 @@ class ApplicationController < ActionController::Base
     I18n.with_locale(locale, &action)
   end
 
+  def after_sign_in_path_for(resource)
+    user_path(resource)
+  end
+
   protected
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up) do |u|
-      u.permit(:username, :first_name, :second_name, :email, :password, :password_confirmation)
+      u.permit(:username, :first_name, :second_name, :avatar, :email, :password, :password_confirmation)
     end
 
     devise_parameter_sanitizer.permit(:account_update) do |u|
