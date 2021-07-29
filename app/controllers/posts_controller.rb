@@ -10,7 +10,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.build(post_params)
     if @post.save
       flash[:notice] = t('controllers.create')
-      redirect_to user_path(current_user)
+      redirect_to users_path(current_user)
     else
       render 'new'
     end
@@ -20,7 +20,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.find(params[:id])
     if @post.update(post_params)
       flash[:notice] = t('controllers.update')
-      redirect_to user_path(current_user)
+      redirect_to users_path(current_user)
     else
       render 'edit'
     end
@@ -32,6 +32,7 @@ class PostsController < ApplicationController
 
   def show
     @post = current_user.posts.find(params[:id])
+    @comment = @post.comments.find(params[:id])
   end
 
   def destroy
@@ -39,7 +40,7 @@ class PostsController < ApplicationController
     @post.destroy
     if @post.destroy
       flash[:notice] = t('controllers.destroy')
-      redirect_to user_path(current_user)
+      redirect_to users_path(current_user)
     end
   end
 

@@ -1,0 +1,14 @@
+.comment-form.container.shadow.bg-white.pb-3
+  .container
+    .row
+      .col-md-3
+      .col-md-6
+        = simple_form_for @comment, url: post_comments_path(@post) do |f|
+          .form-group
+          = f.text_area :text_comment, hide_label: true, placeholder: "Write your comment", input_group_class: 'trix-comment', required: true
+          %br/
+          .custom-file
+            = f.file_field :picture
+          %br/
+          = f.button :submit, class: "btn btn-primary"
+    .col-md-3

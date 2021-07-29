@@ -1,10 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Arvo:700');
 @import url('https://fonts.googleapis.com/css?family=Seaweed+Script');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 @import 'materialize';
 
 #boxy{
   background: image-url('1.jpg') no-repeat;
 }
+
 [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
   position: static!important;
   left: 0px!important;
@@ -24,6 +26,12 @@
   width: 40px;
 }
 
+.profile_image_home{
+  border-radius: 10%;
+  height: 40px;
+  width: 40px;
+}
+
 .center-content {
   display: block;
   text-align: center;
@@ -35,6 +43,13 @@
   border-radius: 50%;
   height: 250px;
   width: 250px;
+  margin: auto;
+}
+
+.medium-profile-image-home {
+  border-radius: 50%;
+  height: 150px;
+  width: 150px;
   margin: auto;
 }
 

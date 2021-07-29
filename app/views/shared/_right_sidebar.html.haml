@@ -1,0 +1,8 @@
+.col.s3
+  %h3.text-color.mt-3.mb-3 Suggested
+  %hr.solid/
+  - @users.each do |user|
+    - next if user == current_user
+    .d-flex.justify-content-between.mb-3
+      = render 'shared/display_users', user: user
+
