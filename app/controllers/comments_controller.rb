@@ -10,14 +10,14 @@ class CommentsController < ApplicationController
   def create
     @post = Post.find(params[:post_id])
     @comment = current_user.comments.build(comment_params)
-    @comment.post = @post
-
     respond_to do |format|
       if @comment.save
         format.js
-        format.html { redirect_to users_path, notice: 'Comment was successfully created.' }
+        format.html { redirect_to @comment }
+        format.json { render @comment, status: :created, location: @comment }
       else
-        flash[:alert] = 'One photo per comment and comments cannot be empty'
+        format.html
+        format.json { render json: @comment.errors, status: :unprocessable_entity}
       end
     end
   end
@@ -26,13 +26,10 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     @post = @comment.post
     @comments = @post.comments
-    respond_to do |format|
-      if @comment.destroy
-        format.js
-        # format.html { redirect_to users_path, notice: 'Comment was successfully deleted.' }
-      else
-        flash[:alert] = 'ggg'
-      end
+    if @comment.destroy
+      redirect_to users_path
+    else
+      flash[:alert] = 'Comment was not deleted'
     end
   end
 
