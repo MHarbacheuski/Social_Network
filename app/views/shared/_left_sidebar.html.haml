@@ -1,22 +1,23 @@
-.col-lg-3.pl-4.pt-4
+.container_two
   .col.s3
     %div
-      = link_to current_user, class: "text-decoration-none" do
-        = image_tag(current_user.avatar, class: "medium-profile-image-home")
-        %span.text-dark{style: "font-size:1.2rem"}
-        %br/
-        #{current_user.first_name} #{current_user.second_name}
+      .margin-top
+        .center-content
+          = image_tag(current_user.avatar, class: "medium-profile-image-home")
+          %span.text-dark{style: "font-size:1.2rem"}
+          %br/
+          #{current_user.first_name} #{current_user.second_name}
         %br/
     %ul.collapsible
       %li
         .collapsible-header
           %i.material-icons account_circle
           = link_to user_path(current_user), class: "text-decoration-none" do
-            %span.text-dark{style: "font-size:1.2rem"} Account
+            %span.text-dark{style: "font-size:1.2rem"} My profile
             %br/
       %li
         .collapsible-header
           %i.material-icons add
-          %span Friends of interest
-    = link_to "Post", new_post_path(current_user), class: "btn bg-color rounded-pill text-white btn-lg mt-5 text-center"
+          %span= link_to "Add Post", new_post_path(current_user)
+    -# = link_to "Post", new_post_path(current_user), class: "btn bg-color rounded-pill text-white btn-lg mt-5 text-center"
     %br/

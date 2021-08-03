@@ -3,6 +3,5 @@
   .col.s6
     #pills-tabContent.tab-content
       #pills-home.tab-pane.fade.show.active{"aria-labelledby" => "pills-home-tab", role: "tabpanel"}
-        %ol.posts
-        = render @posts
+        = render 'posts_list'
   = render 'shared/right_sidebar'

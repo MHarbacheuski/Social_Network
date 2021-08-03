@@ -17,7 +17,7 @@ en:
       name: 'Friends of interest'
   include:
     auth:
-      exit: 'Exit'
+      exit: 'Log Out'
       edit: 'Edit Account'
       sign_in: 'Sign in'
       sign_up: 'Sign up'

@@ -8,14 +8,6 @@
       %br/
       = f.text_field :username, autofocus: true, autocomplete: "username", class: "bg-light"
     .field
-      = f.label :first_name, "FirstName"
-      %br/
-      = f.text_field :first_name, autofocus: true, autocomplete: "user_first_name", class: "bg-light"
-    .field
-      = f.label :second_name, "SecondName"
-      %br/
-      = f.text_field :second_name, autofocus: true, autocomplete: "user_second_name", class: "bg-light"
-    .field
       = f.label :email, "Email"
       %br/
       = f.email_field :email, autofocus: true, autocomplete: "email"
@@ -25,7 +17,7 @@
     .field
       = f.label :password, "Password"
       %br/
-      = f.password_field :password, autocomplete: "new-password", help: "leave blank if you don't want to change it"
+      = f.password_field :password, autocomplete: "new-password", hint: "leave blank if you don't want to change it"
     .field
       = f.label :password_confirmation, "Password Confirmation"
       %br/
@@ -33,7 +25,7 @@
     .field
       = f.label :current_password, "Current Password"
       %br/
-      = f.password_field :current_password, autocomplete: "current-password", help: "we need your current password to confirm your changes"
+      = f.password_field :current_password, autocomplete: "current-password", hint: "we need your current password to confirm your changes"
     .d-flex.justify-content-between
       .actions
         = f.submit "Save", class: "btn text-white rounded-pill bg-color"

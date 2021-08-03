@@ -7,6 +7,10 @@
   background: image-url('1.jpg') no-repeat;
 }
 
+.deleteAction:hover{
+  color: black;
+}
+
 [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
   position: static!important;
   left: 0px!important;
@@ -30,6 +34,15 @@
   border-radius: 10%;
   height: 40px;
   width: 40px;
+}
+
+
+
+.margin-top {
+  //background: #fc3; /* Цвет фона */
+  //border: 2px solid black; /* Параметры рамки */
+  //padding: 20px; /* Поля вокруг текста */
+  margin-top: 8%; /* Отступ сверху */
 }
 
 .center-content {
@@ -58,6 +71,17 @@
   max-width:initial;
   > .row{
     margin: 20px;
+    > .col{
+      padding: 0;
+    }
+  }
+}
+
+.container_two{
+  width: 90%;
+  max-width:initial;
+  > .row{
+    margin: 30px;
     > .col{
       padding: 0;
     }
