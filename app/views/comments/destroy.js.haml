@@ -1,3 +1,4 @@
-// window.location.reload();
 var post_id = "#{j @post.id}";
--#$(`#post-id-${post_id} container`).html("#{ escape_javascript(j render(:partial => "comments_list") )}");
+var comment_id = "#{j @comment.id}";
+$(`#post-id-${post_id}-${comment_id}`).parent().html("#{ j render 'comments_list' }")
+

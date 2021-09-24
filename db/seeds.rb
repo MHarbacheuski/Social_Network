@@ -15,4 +15,3 @@ games = Category.create!(name: "Games")
   Interest.create!(title: Faker::Hobby.activity, category: hobby)
   Interest.create!(title: Faker::Esport.game, category: games)
 end
-

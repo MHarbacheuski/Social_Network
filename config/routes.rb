@@ -1,17 +1,21 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  get 'static_pages/home'
-  get 'static_pages/help'
-  get 'static_pages/about'
-
-  devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks', registrations: "registrations" }
-
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  get 'invitations/create'
+  get 'invitations/update'
+  get 'invitations/destroy'
+  devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks', registrations: 'registrations' }
+  resources :invitations
   resources :users
   resources :users_interests
+  resources :profiles
   resources :posts do
     resources :comments
+    resources :likes
   end
+  resources :room_messages
+  resources :rooms
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  root to: "users_interests#new"
+  root to: 'users_interests#new'
 end

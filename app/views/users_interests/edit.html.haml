@@ -1,0 +1,23 @@
+%div{style:"margin: 30px"}
+  .container
+    = simple_form_for :user_interest, url: users_interests_path do |f|
+      %table.table.table-hover.table-dark
+        %thread
+          %tr
+            %th{scope: "col", class:'center-content'} Category Name
+            %th{scope: "col"} Interests
+        - @categories.each do |category|
+          %tbody
+            %th{scope: "col"}
+              .center-content
+                = category.name
+            - category.interests.each do |interest|
+              %th{scope: "col"}
+                = interest.title
+                - if current_user.interests.find_by(id: interest.id)
+                  = check_box_tag 'interest_ids[]', interest.id, true
+                - else
+                  = check_box_tag 'interest_ids[]', interest.id, false
+      %br/
+      .center-content
+        = f.button :submit, class: "btn text-white rounded-pill bg-color"

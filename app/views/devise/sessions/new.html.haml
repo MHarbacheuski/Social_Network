@@ -14,11 +14,12 @@
           = f.password_field :password, autocomplete: "new-password", class: "bg-light"
         - if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations'
           = link_to "Forgot your password?", new_password_path(resource_name), class: "small text-dark"
-          %br/
-        - if devise_mapping.rememberable?
-          .field.mt-3remember_me
-            = f.check_box :remember_me, include_hidden: false
+        -# - if devise_mapping.rememberable?
+        -#   .field.mt-3remember_me
+        -#     = f.check_box :remember_me, include_hidden: false
+        -#     Remember me
         .actions.d-flex.justify-content-center.mt-3
+          %br
           = f.submit "Sign In", class: "btn btn-default btn-primary"
         %p.text-center.mt-3 OR
         - if devise_mapping.omniauthable?

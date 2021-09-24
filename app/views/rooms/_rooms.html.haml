@@ -1,0 +1,14 @@
+.mb-3
+  = link_to new_room_path, class: 'btn btn-primary' do
+    Create a room
+- if @rooms.present?
+  %nav.nav.flex-column
+    - @user.rooms.each do |room|
+      = link_to room_path(room), class: 'nav-link room-nav-link' do
+        #{room.profile.first_name} #{room.profile.second_name}
+    - @user.profile.rooms.each do |profile_room|
+      = link_to room_path(profile_room), class: 'nav-link room-nav-link' do
+        #{profile_room.user.profile.first_name} #{profile_room.user.profile.second_name}
+- else
+  .text-muted
+    The are no rooms

@@ -1,3 +1,4 @@
 class Category < ApplicationRecord
-  has_many :interests
+  validates :name, presence: true
+  has_many :interests, dependent: :destroy
 end

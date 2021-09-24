@@ -1,0 +1,6 @@
+= simple_form_for @room_message, remote: true do |form|
+  .input-group.mb-3
+    = form.input :message, as: :string, wrapper: false, label: false, input_html: { class: 'chat-input'}
+    .input-group-append
+      = form.submit "Send", class: 'btn btn-primary chat-input'
+  = form.input :room_id, as: :hidden

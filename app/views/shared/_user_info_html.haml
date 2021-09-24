@@ -3,11 +3,18 @@
     .col-md-4
     .col-md-4
       .container
-        - if current_user.avatar.attached?
-          = image_tag current_user.avatar ,:class=>"medium-profile-image center-content"
+        - if @profile.avatar.attached? && current_user == @profile.user
+          = image_tag @profile.avatar_attachment_path ,:class=>"medium-profile-image center-content"
           %h3.center-content
-            = current_user.username
+            #{@profile.first_name} #{@profile.second_name}
           %h5.center-content
-            %span= link_to "view my profile", current_user
-            %span= pluralize(current_user.posts.count, "post")
+            %span= link_to "view my profile", @profile
+            %span= pluralize(@profile.posts.count, "post")
+        - else
+          = image_tag @profile.avatar_attachment_path ,:class=>"medium-profile-image center-content"
+          %h3.center-content
+            #{@profile.first_name} #{@profile.second_name}
+          %h5.center-content
+            %span= link_to "view #{@profile.first_name} profile", @profile
+            %span= pluralize(@profile.posts.count, "post")
     .col-md-4

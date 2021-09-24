@@ -1,4 +1,5 @@
 %div
-  = link_to user, class: "text-decoration-none" do
-    -# = image_tag(user.avatar, class: "medium-profile-image-home")
-    = user.username
+  = link_to user.profile, class: "text-decoration-none" do
+    = image_tag(user.profile.avatar_attachment_path, class: "medium-profile-image-right-sidebar")
+    #{user.profile.first_name} #{user.profile.second_name}
+

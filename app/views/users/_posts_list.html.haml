@@ -1,27 +1,54 @@
-%div{style:"margin: 30px"}
-  .shadow-sm.pt-3.pl-4.pr-4.pb-3.mt-3
-    .d-flex.justify-content-between
-      %div
-        %div
-          - @posts.each do |post|
-            = link_to post.user, class: "text-decoration-none" do
-              = image_tag(post.user.avatar, :class => "rounded-circle mr-2", size: "30x30", alt: "Profile pic")
+%div{ style:"margin: 30px" }
+- if @posts.present?
+  - @posts.order(created_at: :desc).each do |post|
+    .post-container
+      .card-post-list.mb-3
+        .card-header
+          = link_to post.user.profile, class: "text-decoration-none" do
+            = image_tag(post.user.profile.avatar_attachment_path, style: "border-radius: 30%;",
+                 size: "30x30", alt: "Profile pic")
+          %strong
+            %span{style: "font-size:0.9rem;"}
+              #{post.user.profile.first_name} #{post.user.profile.second_name}
+          - if current_user == post.user
+            %a.dropdown-trigger{"data-target" => "dropdown_#{post.id}", href: "#"}
+              %i.material-icons.right arrow_drop_down
+            %ul.dropdown-content#dropdown{id: "#{post.id}"}
+              %li
+                = link_to "Edit", edit_post_path(id: post.id, profile_id:@user.profile.id)
+              %li
+                = link_to "Delete", post_path(post), method: :delete,
+                  data: { confirm: "Are you sure you want to delete this post?" }
+          %div
             %strong
-              %span{style: "font-size:0.9rem"}= post.heading
-            %br/
-            %div
-              %small.text-muted.ml-3.pl-4{style: "font-size:0.7rem"}
-                #{time_ago_in_words(post.created_at)} ago
-            .text-decoration-none
-              %span.content
-                = post.content
-                = image_tag post.picture.url if post.picture?
-            .dropdown-menu
-              = link_to "Delete post", post_path(post), method: :delete, data: { confirm: "Are you sure you want to delete this post?" },
-               class: "dropdown-item"
-              = link_to "Edit post", edit_post_path(id: post.id)
-            .new{:id => "post-id-#{post.id}"}
-              = link_to "Comment", new_post_comment_path(post), method: :get, class: "btn btn-secondary btn-small",
-               style: "margin-right: 15px", remote: true
-            %hr.solid/
-  %br/
+              %span{style: "font-size:1.5rem"}= post.heading
+        .card-body
+          %p.card-text= post.content
+          %div
+            = image_tag post.picture.url if post.picture?
+        .card-body-comments.new{:id => "post-id-#{post.id}"}
+          = link_to new_post_comment_path(post), method: :get, remote: true do
+            %i.material-icons mode_comment
+          - pre_like = post.likes.find { |like| like.user_id == current_user.id}
+          - if pre_like
+            = link_to post_like_path(post, pre_like), method: :delete do
+              %i.material-icons thumb_down
+          - else
+            = link_to post_likes_path(post), method: :post do
+              %i.material-icons thumb_up
+          = post.likes.count
+        .card-footer
+          %small.text-muted.ml-3.pl-4{style: "font-size:0.7rem"}
+            #{time_ago_in_words(post.created_at)} ago
+  - if current_user != @user
+    .post-container
+      = link_to new_post_path(profile_id:@user.profile.id) do
+        .btn-floating.right
+          %i.material-icons.right add
+- else
+  Post empty
+  - if current_user != @user
+    .post-container
+      = link_to new_post_path(profile_id:@user.profile.id) do
+        .btn-floating.right
+          %i.material-icons.right add

@@ -35,20 +35,34 @@ gem 'pry'
 gem 'pry-byebug'
 gem 'simple_form'
 # Reduces boot times through caching; required in config/boot.rb
-gem 'factory_bot'
+gem 'carrierwave'
+
 gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
 gem 'figaro'
-gem 'haml'
-gem 'carrierwave'
-gem 'mini_magick'
 gem 'fog'
+gem 'haml'
+gem 'mini_magick'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-rails_csrf_protection'
+gem 'rails_admin'
+gem 'rails_admin_impersonate'
+gem 'searchkick'
+gem 'elasticsearch'
+gem 'coffee-rails', '~> 4.2'
+gem 'jquery-rails'
+gem 'redis'
+
+
+gem 'simplecov', require: false, group: :test
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'rspec-rails'
+  gem 'shoulda-matchers'
+  gem 'factory_bot'
+  gem 'rails-controller-testing'
 end
 
 group :development do
@@ -67,7 +81,6 @@ group :test do
   gem 'capybara', '>= 3.26'
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
-  gem 'shoulda-matchers'
   gem 'webdrivers'
 end
 

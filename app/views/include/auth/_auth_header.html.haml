@@ -1,6 +1,9 @@
 - if user_signed_in?
-  %a #{current_user.email}
-  = link_to t('include.auth.profile'), user_path(current_user.id)
+  %a.script_company_name
+    Friends of interest
+  = link_to 'Profile', profile_path(current_user.profile.id)
+  -# = link_to t('include.auth.profile'), user_path(current_user.id)
+  = link_to t('include.auth.edit'), edit_user_registration_path
   = link_to t('include.auth.exit'), destroy_user_session_path,
     method: :delete
 - else

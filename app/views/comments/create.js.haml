@@ -1,2 +1,11 @@
-var users = document.querySelector("#comments");
-users.insertAdjacentHTML("beforeend", "#{ j render(@comment) }");
+-#$('#comments').append("#{ j render 'comments/comments_list'}");
+-#var dummy = "#{j @comment.id}";
+-#$(`#comment-id-${dummy} a`).append("#{ j render @comment }")
+var post_id = "#{j @post.id}";
+var comment_id = "#{j @comment.id}";
+
+$(`#comments`).append("#{ j render 'comment' }")
+
+
+
+

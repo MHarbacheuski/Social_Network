@@ -40,3 +40,6 @@ config/application.yml
 /config/credentials/development.key
 
 /config/credentials/devise.key
+
+/config/credentials/test.key
+coverage
