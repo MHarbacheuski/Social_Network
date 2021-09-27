@@ -27,13 +27,13 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = @post.comments.find(params[:id])
     respond_to do |format|
-    if @comment.destroy
-      format.js
-      format.html { redirect_to  @comment, notice: "Success"}
-      format.json {head :no_content}
-    else
-      flash[:alert] = 'ggg'
-    end
+      if @comment.destroy
+        format.js
+        format.html { redirect_to  @comment, notice: "Success"}
+        format.json { head :no_content }
+      else
+        flash[:alert] = 'ggg'
+      end
     end
   end
 
@@ -44,6 +44,7 @@ class CommentsController < ApplicationController
       flash[:notice] = t('controllers.update')
       redirect_to profile_path(current_user.profile.id)
     else
+      flash[:alert] = 'Please fill all fields correctly'
       render 'edit'
     end
   end

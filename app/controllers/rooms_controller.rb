@@ -3,20 +3,20 @@ class RoomsController < ApplicationController
 
   def index
     @rooms = Room.all
-    @user = User.find_by(id:params[:user_id])
+    @user = User.find_by(id: params[:user_id])
   end
 
   def new
     @friend_profile = Profile.find(params[:profile_id])
-    @current_user_room = Room.joins(:user,:profile).where(user: current_user.id, profile:@friend_profile)
+    @current_user_room = Room.joins(:user, :profile).where(user: current_user.id, profile: @friend_profile)
     @current_profile = current_user.profile
-    @friend_room = Room.joins(:user,:profile).where(user: @friend_profile, profile:@current_profile)
+    @friend_room = Room.joins(:user, :profile).where(user: @friend_profile.user_id, profile: @current_profile)
     if @current_user_room.present?
       redirect_to room_path(id: @current_user_room.ids)
     elsif @friend_room.present?
       redirect_to room_path(id: @friend_room.ids)
     else
-      @room = current_user.rooms.build(profile_id:@friend_profile.id)
+      @room = current_user.rooms.build(profile_id: @friend_profile.id)
       @room.room_messages.build(user_id: current_user.id)
     end
   end
@@ -65,6 +65,6 @@ class RoomsController < ApplicationController
 
   def permitted_parameters
     params.require(:room).permit(:user_id, :profile_id,
-                                 room_messages_attributes: [:id, :room_id, :user_id, :message])
+                                 room_messages_attributes: %i[id room_id user_id message])
   end
 end

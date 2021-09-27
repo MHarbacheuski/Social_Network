@@ -1,6 +1,6 @@
 %div{ style:"margin: 30px" }
 - if @posts.present?
-  - @posts.order(created_at: :desc).each do |post|
+  - @posts.each do |post|
     .post-container
       .card-post-list.mb-3
         .card-header
@@ -10,15 +10,6 @@
           %strong
             %span{style: "font-size:0.9rem;"}
               #{post.user.profile.first_name} #{post.user.profile.second_name}
-          - if current_user == post.user
-            %a.dropdown-trigger{"data-target" => "dropdown_#{post.id}", href: "#"}
-              %i.material-icons.right arrow_drop_down
-            %ul.dropdown-content#dropdown{id: "#{post.id}"}
-              %li
-                = link_to "Edit", edit_post_path(id: post.id, profile_id: @user.profile.id)
-              %li
-                = link_to "Delete", post_path(post), method: :delete,
-                  data: { confirm: "Are you sure you want to delete this post?" }
           %div
             %strong
               %span{ style: "font-size:1.5rem" }= post.heading
@@ -40,17 +31,6 @@
         .card-footer
           %small.text-muted.ml-3.pl-4{style: "font-size:0.7rem"}
             #{time_ago_in_words(post.created_at)} ago
-  - if current_user != @user
-    .post-container
-      = link_to new_post_path(profile_id:@user.profile.id) do
-        .btn-floating.right
-          %i.material-icons.right add
 - else
   .center-content{ style: "font-size: 15px"}
     Posts empty
-  %br/
-  - if current_user != @user
-    .post-container
-      = link_to new_post_path(profile_id:@user.profile.id) do
-        .btn-floating.right
-          %i.material-icons.right add

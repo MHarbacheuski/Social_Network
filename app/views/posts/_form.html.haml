@@ -1,8 +1,8 @@
-.container
+.container_for_posts
   .row
     .col-md-3
     .col-md-6
-      = simple_form_for @post, html: { multipart: true} do |f|
+      = simple_form_for @post, html: { multipart: true } do |f|
         .form-group
           = f.text_field :heading, placeholder: "Compose new heading..."
           = f.text_area :content, placeholder: "Compose new post..."

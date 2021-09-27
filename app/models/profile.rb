@@ -8,8 +8,17 @@ class Profile < ApplicationRecord
   belongs_to :user
 
   has_one_attached :avatar
-  #searchkick
+
+  searchkick
+
   def avatar_attachment_path
     avatar.attached? ? avatar : 'default-user.jpg'
+  end
+
+  def search_data
+    {
+      first_name: first_name,
+      second_name: second_name
+    }
   end
 end

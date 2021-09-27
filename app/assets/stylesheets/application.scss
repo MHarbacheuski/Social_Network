@@ -276,6 +276,26 @@ button:hover, a:hover {
   border-radius: 5px;
   padding: 10px;
   margin: auto;
+  width: 50%;
+  max-width:initial;
+}
+
+.container_for_profiles {
+  border: 2px solid #dedede;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  padding: 10px;
+  margin: auto;
+  width: 50%;
+  max-width:initial;
+}
+
+.container_for_comments {
+  border: 2px solid #dedede;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  padding: 10px;
+  margin: auto;
   width: 60%;
   max-width:initial;
 }

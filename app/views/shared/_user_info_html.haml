@@ -3,7 +3,7 @@
     .col-md-4
     .col-md-4
       .container
-        - if @profile.avatar.attached? && current_user == @profile.user
+        - if current_user == @profile.user
           = image_tag @profile.avatar_attachment_path ,:class=>"medium-profile-image center-content"
           %h3.center-content
             #{@profile.first_name} #{@profile.second_name}

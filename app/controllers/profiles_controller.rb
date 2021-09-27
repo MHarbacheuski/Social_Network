@@ -3,7 +3,12 @@ class ProfilesController < ApplicationController
   attr_accessor :profile
 
   def index
-    @profiles = Profile.all
+    if params[:search].present?
+      Profile.reindex
+      @profiles = Profile.search(params[:search], load: true)
+    else
+      @profiles = Profile.all
+    end
   end
 
   def show

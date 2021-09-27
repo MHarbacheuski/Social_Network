@@ -46,10 +46,4 @@ class User < ApplicationRecord
     invitations.create(friend_id: user.id)
   end
 
-  def search_data
-    {
-      email: email
-    }
-  end
-
 end

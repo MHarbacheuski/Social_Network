@@ -2,11 +2,13 @@
   .container
     %h1{style:"font-size: 35px;text-align: center;"}
       - if @room.user.profile.id == current_user.profile.id
-        = @room.profile.first_name
-        = @room.profile.second_name
-      -else
-        = @room.user.profile.first_name
-        = @room.user.profile.second_name
+        = link_to profile_path(@room.profile.id), style: "color: black;" do
+          = @room.profile.first_name
+          = @room.profile.second_name
+      - else
+        = link_to profile_path(@room.user.profile), style: "color: black;" do
+          = @room.user.profile.first_name
+          = @room.user.profile.second_name
       = link_to "Delete chat", room_path, method: :delete, class: "btn btn-primary", style: " float: right;",
         data: { confirm: "Are you sure you want to delete this chat?" }
     .col

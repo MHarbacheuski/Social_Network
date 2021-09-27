@@ -1,12 +1,17 @@
-%h3.text-color.mt-3.mb-3 Request
-%hr.solid/
-%ol
-  - current_user.pending_invitations.each do |invitation|
-    .chip
-      = image_tag(invitation.user.profile.avatar, class: "medium-profile-image-home") if invitation.user.profile.avatar.persisted?
-      = User.find(invitation.user_id).profile.first_name
-      = User.find(invitation.user_id).profile.second_name
-    - if @user == current_user
-      = link_to 'Accept', invitations_update_path(invitation_id: invitation.id), class: "waves-effect waves-light btn-small"
-      = link_to 'Reject', invitations_destroy_path(invitation_id: invitation.id), class: "waves-effect waves-light btn-small"
-      %br/
+- if current_user.pending_invitations.presence
+  %h3.text-color.mt-3.mb-3 Request
+  %hr.solid/
+  %ol
+    - current_user.pending_invitations.each do |invitation|
+      .chip
+        = image_tag(invitation.user.profile.avatar, class: "medium-profile-image-home") if invitation.user.profile.avatar.persisted?
+        = User.find(invitation.user_id).profile.first_name
+        = User.find(invitation.user_id).profile.second_name
+      - if @user == current_user
+        = link_to 'Accept', invitations_update_path(invitation_id: invitation.id), class: "waves-effect waves-light btn-small"
+        = link_to 'Reject', invitations_destroy_path(invitation_id: invitation.id), class: "waves-effect waves-light btn-small"
+        %br/
+- else
+  %h3.text-color.mt-3.mb-3 Request
+  %hr.solid/
+  Empty

@@ -15,25 +15,28 @@ class PostsController < ApplicationController
 
   def new
     @profile = Profile.find(params[:profile_id])
-    @post = current_user.posts.build(profile_id:params[:profile_id])
+    @post = current_user.posts.build(profile_id: params[:profile_id])
   end
 
   def create
+    @profile = current_user.profile
     @post = current_user.posts.create(post_params)
     if @post.save
       flash[:notice] = t('controllers.create')
-      redirect_to profile_path(@post.profile.id)
     else
-      render 'new'
+      flash[:alert] = 'Please fill all fields correctly'
     end
+    redirect_to profile_path(@post.profile.id)
   end
 
   def update
+    @profile = current_user.profile
     @post = current_user.posts.find(params[:id])
     if @post.update(post_params)
       flash[:notice] = t('controllers.update')
       redirect_to profile_path(@post.profile.id)
     else
+      flash[:alert] = 'Please fill all fields correctly'
       render 'edit'
     end
   end

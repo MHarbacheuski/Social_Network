@@ -32,7 +32,7 @@
           - else
             Birthday: not indicated
           %br
-          - if @user.profile.locate
+          - if @user.profile.locate.presence
             Locate:
             = @user.profile.locate
           - else
