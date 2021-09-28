@@ -94,7 +94,7 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-
+  Rails.application.credentials.secret_key_base
   config.action_mailer.delivery_method = :smtp
   host = 'localhost:3000' # replace with your own url
   config.action_mailer.default_url_options = { host: host }
