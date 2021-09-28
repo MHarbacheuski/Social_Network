@@ -45,3 +45,5 @@ config/application.yml
 coverage
 
 /config/credentials/production.key
+
+/config/credentials/development.key.key
