@@ -9,7 +9,7 @@ class Profile < ApplicationRecord
 
   has_one_attached :avatar
 
-  searchkick
+  #searchkick
 
   def avatar_attachment_path
     avatar.attached? ? avatar : 'default-user.jpg'
