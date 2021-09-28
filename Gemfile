@@ -52,7 +52,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
 gem 'redis'
 
-
+gem 'rails_12factor', group: :production
 gem 'simplecov', require: false, group: :test
 
 
