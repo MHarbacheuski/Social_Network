@@ -96,7 +96,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.action_mailer.delivery_method = :smtp
-  host = 'localhost:3000' # replace with your own url
+  host = 'rails-social-network-01.herokuapp.com' # replace with your own url
   config.action_mailer.default_url_options = { host: host }
 
   # SMTP settings for gmail
