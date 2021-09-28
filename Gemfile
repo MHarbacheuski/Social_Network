@@ -31,8 +31,7 @@ gem 'bootstrap_form'
 gem 'devise'
 gem 'jquery-turbolinks'
 gem 'materialize-sass'
-gem 'pry'
-gem 'pry-byebug'
+
 gem 'simple_form'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'carrierwave'

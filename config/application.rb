@@ -12,6 +12,7 @@ module RailsSocialNetwork
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '*.{rb,yml}')]
     config.i18n.default_locale = :en
     config.paths['app/views'] << "app/views/devise"
+
     config.generators do |g|
       g.test_framework :rspec
       g.helper_specs false
