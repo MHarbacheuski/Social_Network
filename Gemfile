@@ -36,20 +36,20 @@ gem 'simple_form'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'carrierwave'
 
+gem 'coffee-rails', '~> 4.2'
+gem 'elasticsearch', '~> 7.13.3'
 gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
 gem 'figaro'
 gem 'fog'
 gem 'haml'
+gem 'jquery-rails'
 gem 'mini_magick'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-rails_csrf_protection'
 gem 'rails_admin'
 gem 'rails_admin_impersonate'
-gem 'searchkick'
-gem 'elasticsearch'
-gem 'coffee-rails', '~> 4.2'
-gem 'jquery-rails'
 gem 'redis'
+gem 'searchkick'
 
 gem 'rails_12factor', group: :production
 gem 'simplecov', require: false, group: :test
@@ -58,10 +58,10 @@ gem 'simplecov', require: false, group: :test
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  gem 'rspec-rails'
-  gem 'shoulda-matchers'
   gem 'factory_bot'
   gem 'rails-controller-testing'
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
 end
 
 group :development do
