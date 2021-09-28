@@ -4,7 +4,7 @@ Devise.setup do |config|
   config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
   google_client_id = Rails.application.credentials.google[:google_client_id]
   google_client_secret = Rails.application.credentials.google[:google_client_secret]
-  Rails.application.credentials.secret_key_base
+  
   # available as additional gems.
   require 'devise/orm/active_record'
 
