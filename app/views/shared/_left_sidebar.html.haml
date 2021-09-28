@@ -68,9 +68,15 @@
           My Interests
           = link_to edit_users_interest_path(user_id: current_user) do
             %i.material-icons edit
-        -else
+        - else
           #{@user.profile.first_name} Interests
       .panel-menu.item
         - @user.interests.each do |interest|
           %span.label.info= interest.title
+    - else
+      .script_interests
+        - if current_user == @user
+          Interests empty
+          = link_to edit_users_interest_path(user_id: current_user) do
+            %i.material-icons edit
 

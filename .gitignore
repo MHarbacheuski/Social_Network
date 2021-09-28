@@ -47,3 +47,6 @@ coverage
 /config/credentials/production.key
 
 /config/credentials/development.key.key
+
+# Ignoring loaded test images.
+/public/uploads
