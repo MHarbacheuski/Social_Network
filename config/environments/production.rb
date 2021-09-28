@@ -94,6 +94,8 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  config.web_socket_server_url = "wss://action-cable-example.herokuapp.com/cable"
+  config.action_cable.allowed_request_origins = ['https://action-cable-example.herokuapp.com', 'http://action-cable-example.herokuapp.com']
 
   config.action_mailer.delivery_method = :smtp
   host = 'rails-social-network-01.herokuapp.com' # replace with your own url
