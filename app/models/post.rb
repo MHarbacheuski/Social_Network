@@ -7,7 +7,7 @@ class Post < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
   mount_uploader :picture, PictureUploader
-  #searchkick
+  searchkick
   def search_data
     {
       content: content,
