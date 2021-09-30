@@ -1,16 +1,9 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  #searchkick
-  #scope :search_import, -> { includes(:profile) }
-
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
-  devise :omniauthable, omniauth_providers: [:google_oauth2]
-
+  has_one :profile, dependent: :destroy
   has_one_attached :avatar
+
   has_many :user_interests, dependent: :destroy
   has_many :interests, through: :user_interests
   has_many :posts, dependent: :destroy
@@ -18,11 +11,14 @@ class User < ApplicationRecord
   has_many :invitations, dependent: :destroy
   has_many :pending_invitations, -> { where confirmed: false }, class_name: 'Invitation', foreign_key: 'friend_id'
   has_many :likes, dependent: :destroy
-  has_many :rooms
-
-  has_one :profile, dependent: :destroy
-  accepts_nested_attributes_for :profile
+  has_many :rooms, dependent: :destroy
   has_many :room_messages, dependent: :destroy
+
+  accepts_nested_attributes_for :profile
+
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
+  devise :omniauthable, omniauth_providers: [:google_oauth2]
 
   def self.from_omniauth(provider_data)
     where(provider: provider_data.provider, uid: provider_data.uid).first_or_create do |user|
@@ -45,5 +41,4 @@ class User < ApplicationRecord
   def send_invitation(user)
     invitations.create(friend_id: user.id)
   end
-
 end

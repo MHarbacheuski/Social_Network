@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe CommentsController, type: :controller do
-  let(:comments) { create_list :comment, 3 } #work
+  let(:comments) { create_list :comment, 3 } # work
   let(:comment_params) do
     {
       comment: {
@@ -13,7 +15,7 @@ RSpec.describe CommentsController, type: :controller do
   end
 
   context 'POST #create' do
-    subject { post :create, params:comment_params }
+    subject { post :create, params: comment_params }
 
     # it 'returns comments' do
     #   binding.pry
@@ -21,7 +23,7 @@ RSpec.describe CommentsController, type: :controller do
     # end
 
     it 'save the item' do
-      #binding.pry
+      # binding.pry
       expect { subject }.to change(Comment, :count).by 1
     end
 

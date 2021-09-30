@@ -1,9 +1,9 @@
 .row
   .container_two
     .col.s8
-      = link_to "Search friends", profiles_path
       %ol
         %a.script_friends My Friends
+        =link_to "Search friends", profiles_path, class: "waves-effect waves-light btn-small right", style: "top: 20px"
         - if @user.friends.presence
           %ol
             - @user.friends.each do |friend|

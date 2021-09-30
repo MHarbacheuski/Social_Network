@@ -1,0 +1,47 @@
+ru:
+  controllers:
+    successfully_updated: 'Профиль успешно обновлен'
+    update: 'Пост успешешно обновлен'
+    destroy: 'Пост успешно удален'
+    create: 'Пост успешно создан'
+    not_create: 'Пожалуйста, заполните все поля правильно'
+    not_update: 'Пожалуйста, заполните все поля правильно'
+    not_delete: 'Пост не удален'
+  layouts:
+    application:
+      theme_project: 'Социальная Сеть'
+      welcome: 'Привет!'
+  include:
+    auth:
+      exit: 'Выход'
+      edit: 'Редактировать аккаунт'
+      sign_in: 'Вход'
+      sign_up: 'Регистрация'
+      welcome: 'Привет'
+      profile: 'Профиль'
+  shared:
+    left_sidebar:
+      birthday: 'Дата Рождения:'
+      delete_friend: 'Удалить Друга'
+      add_friend: 'Добавить Друга'
+      send_message: 'Отправить Сообщение'
+      locate: 'Местонахождение:'
+      not_birthday: 'День Рождения: не указано'
+      not_locate: 'Местонахождение: не указано'
+      my_friends: 'Мои Друзья'
+      my_messages: 'Мои Сообщения'
+      add_post: 'Добавить Пост'
+      find_post: 'Найти Пост'
+      edit_profile: 'Редактировать профиль'
+      my_interests: 'Мои Интересы'
+      interests: 'Интересы'
+      not_interests: 'Нету интересов'
+      wait_friendship: 'Жду ответа от дружбы'
+    right_sidebar:
+      my_friends: 'Мои Друзья'
+      delete_friend: 'Удалить Друга'
+      user_friends: 'Друзья'
+  users_interests:
+    new:
+      success_add_interest: 'Интерес добавлен'
+      error: 'Пожалуйста, выберите интересы'

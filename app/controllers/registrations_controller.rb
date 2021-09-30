@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RegistrationsController < Devise::RegistrationsController
   protected
 
@@ -8,5 +10,4 @@ class RegistrationsController < Devise::RegistrationsController
   def after_update_path_for(resource)
     profile_path(resource.profile.id)
   end
-
 end

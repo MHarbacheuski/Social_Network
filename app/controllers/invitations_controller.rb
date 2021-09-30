@@ -1,5 +1,6 @@
-class InvitationsController < ApplicationController
+# frozen_string_literal: true
 
+class InvitationsController < ApplicationController
   def create
     id1 = params[:ids][:id1]
     id2 = params[:ids][:id2]

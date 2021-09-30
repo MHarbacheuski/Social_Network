@@ -6,17 +6,17 @@
         %h1{ style: "text-align: center; font-size: 35px" } Set your profile
         %br/
         = simple_form_for @profile  do |f|
-          = f.hidden_field :id, value:@profile.id
+          = f.hidden_field :id, value: @profile.id
           .form-group
-            = f.input :first_name, label: "First name", class:"form-control", input_html: { class: 'form-text' }
+            = f.input :first_name, label: "First name", class: "form-control", input_html: { class: 'form-text' }
           .form-group
-            = f.input :second_name, label: "Second name", class:"form-control", input_html: { class: 'form-text' }
+            = f.input :second_name, label: "Second name", class: "form-control", input_html: { class: 'form-text' }
           .form-group
-            = f.input :locate, label: "Locate", class:"form-control", input_html: { class: 'form-text' }
+            = f.input :locate, label: "Locate", class: "form-control", input_html: { class: 'form-text' }
           .field.mb-4
             = f.date_field :birthday, autofocus: true
           .custom-file
-            = f.label :avatar, class:"custom-file-label"
-            = f.file_field :avatar, class:"custom-file-input"
-          = f.submit "Set changes", class:"btn btn-secondary", style:"margin-top:1rem;"
+            = f.label :avatar, class: "custom-file-label"
+            = f.file_field :avatar, class: "custom-file-input"
+          = f.submit "Set changes", class: "btn btn-secondary", style: "margin-top:1rem;"
     .col-md-3

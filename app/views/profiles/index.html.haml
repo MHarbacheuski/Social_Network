@@ -1,14 +1,18 @@
 .container
   = render 'search_profiles'
-
+  %p
   - @profiles.each do |profile|
     - next if profile == current_user.profile
-    .d-flex.justify-content-between.mb-3
-      %br/
+    .container_list_profiles
       - if signed_in? && !Invitation.reacted?(current_user.id, profile.user.id) && current_user != profile.user
-        %div
+        .chip
           = render 'shared/display_users', profile: profile
-          = link_to 'Send Invitation', invitations_create_path(ids: { id1: current_user.id, id2: profile.user.id })
-          %br/
+        = link_to 'Send Invitation', invitations_create_path(ids: { id1: current_user.id, id2: profile.user.id }),
+               class: "waves-effect waves-light btn-small"
+        %br/
+        %br/
       - else
-        = render 'shared/display_users', profile: profile
+        .chip
+          = render 'shared/display_users', profile: profile
+        %br/
+        %br/

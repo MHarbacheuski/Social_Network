@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class RoomChannel < ApplicationCable::Channel
   def subscribed
-    room = Room.find(params[:room])#this work
-    stream_for room# this work
+    room = Room.find(params[:room])
+    stream_for room
   end
 end

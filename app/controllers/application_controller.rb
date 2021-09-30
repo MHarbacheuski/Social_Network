@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    @user = User.find(resource.id)
+    user_path(resource)
     if @user.profile.presence
       profile_path(resource.profile.id)
     else
@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up) do |u|
-      u.permit(:email, :password, :password_confirmation, profile_attributes: [:first_name, :second_name, :avatar])
+      u.permit(:email, :password, :password_confirmation, profile_attributes: %i[first_name second_name avatar])
     end
 
     devise_parameter_sanitizer.permit(:account_update) do |u|

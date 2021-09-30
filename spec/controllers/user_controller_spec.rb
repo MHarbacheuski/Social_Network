@@ -1,19 +1,21 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe UsersController, type: :controller do
-  #let(:users) { create_list :user, 3 } #work
-  let(:user) { FactoryBot.create(:user)}
+  # let(:users) { create_list :user, 3 } #work
+  let(:user) { FactoryBot.create(:user) }
 
   before do
     sign_in user
   end
 
-  it "redirect when something went wrong" do
-    get :index#work
-    expect(response).to render_template("index")
+  it 'redirect when something went wrong' do
+    get :index # work
+    expect(response).to render_template('index')
   end
 
-  #work
+  # work
   # context 'GET #index' do
   #   before do
   #     @users = [FactoryBot.build_stubbed(:user)]
@@ -44,5 +46,4 @@ RSpec.describe UsersController, type: :controller do
       expect(assigns(:user)).eql? user
     end
   end
-
 end

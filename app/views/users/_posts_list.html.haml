@@ -8,12 +8,12 @@
             = image_tag(post.user.profile.avatar_attachment_path, style: "border-radius: 30%;",
                  size: "30x30", alt: "Profile pic")
           %strong
-            %span{style: "font-size:0.9rem;"}
+            %span{ style: "font-size:0.9rem;" }
               #{post.user.profile.first_name} #{post.user.profile.second_name}
           - if current_user == post.user
-            %a.dropdown-trigger{"data-target" => "dropdown_#{post.id}", href: "#"}
+            %a.dropdown-trigger.right{ "data-target" => "dropdown_#{post.id}", href: "#" }
               %i.material-icons.right arrow_drop_down
-            %ul.dropdown-content#dropdown{id: "#{post.id}"}
+            %ul.dropdown-content#dropdown{ id: "#{post.id}" }
               %li
                 = link_to "Edit", edit_post_path(id: post.id, profile_id: @user.profile.id)
               %li
@@ -26,7 +26,7 @@
           %p.card-text= post.content
           %div
             = image_tag post.picture.url if post.picture?
-        .card-body-comments.new{:id => "post-id-#{post.id}"}
+        .card-body-comments.new{ :id => "post-id-#{post.id}" }
           = link_to new_post_comment_path(post), method: :get, remote: true do
             %i.material-icons mode_comment
           - pre_like = post.likes.find { |like| like.user_id == current_user.id}
@@ -38,15 +38,19 @@
               %i.material-icons thumb_up
           = post.likes.count
         .card-footer
-          %small.text-muted.ml-3.pl-4{style: "font-size:0.7rem"}
-            #{time_ago_in_words(post.created_at)} ago
+          %small.text-muted.ml-3.pl-4{ style: "font-size:0.7rem" }
+            - if I18n.locale == :en
+              #{time_ago_in_words(post.created_at)} ago
+            - else
+              = Time.at(Time.now - post.created_at).utc.strftime("%H:%M:%S")
+              ago
   - if current_user != @user
     .post-container
       = link_to new_post_path(profile_id:@user.profile.id) do
         .btn-floating.right
           %i.material-icons.right add
 - else
-  .center-content{ style: "font-size: 15px"}
+  .center-content{ style: "font-size: 15px" }
     Posts empty
   %br/
   - if current_user != @user

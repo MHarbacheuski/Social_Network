@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RoomsController < ApplicationController
   before_action :load_entities
 
@@ -43,7 +45,7 @@ class RoomsController < ApplicationController
 
   def show
     @room = Room.find(params[:id])
-    @room_message = RoomMessage.create(room:@room)
+    @room_message = RoomMessage.create(room: @room)
     @room_messages = @room.room_messages.includes(:user)
   end
 
@@ -51,7 +53,7 @@ class RoomsController < ApplicationController
     @room = Room.find(params[:id])
     @user = @room.user
     if @room.destroy
-      redirect_to rooms_path(user_id:@user)
+      redirect_to rooms_path(user_id: @user)
     else
       flash[:alert] = 'ggg'
     end

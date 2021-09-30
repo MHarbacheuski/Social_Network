@@ -1,10 +1,13 @@
+# frozen_string_literal: true
+
 class PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :correct_user, only: :destroy
+  before_action :find_post, only: %i[show edit update]
+  before_action :find_profile, only: %i[new edit]
 
   def index
     if params[:search].present?
-      Post.reindex
       @posts = Post.search(params[:search], load: true)
     else
       @profile = Profile.find(params[:id])
@@ -14,7 +17,6 @@ class PostsController < ApplicationController
   end
 
   def new
-    @profile = Profile.find(params[:profile_id])
     @post = current_user.posts.build(profile_id: params[:profile_id])
   end
 
@@ -24,42 +26,46 @@ class PostsController < ApplicationController
     if @post.save
       flash[:notice] = t('controllers.create')
     else
-      flash[:alert] = 'Please fill all fields correctly'
+      flash[:alert] =  t('controllers.not_create')
     end
     redirect_to profile_path(@post.profile.id)
   end
 
   def update
     @profile = current_user.profile
-    @post = current_user.posts.find(params[:id])
     if @post.update(post_params)
       flash[:notice] = t('controllers.update')
       redirect_to profile_path(@post.profile.id)
     else
-      flash[:alert] = 'Please fill all fields correctly'
+      flash[:alert] = t('controllers.not_update')
       render 'edit'
     end
   end
 
-  def edit
-    @profile = Profile.find(params[:profile_id])
-    @post = current_user.posts.find(params[:id])
-  end
+  def edit; end
 
   def show
-    @post = current_user.posts.find(params[:id])
     @comment = @post.comments.find(params[:id])
   end
 
   def destroy
-    @post = current_user.posts.find(params[:id])
     if @post.destroy
       flash[:notice] = t('controllers.destroy')
-      redirect_to profile_path(@post.profile.id)
+    else
+      flash[:alert] = t('controllers.not_delete')
     end
+    redirect_to profile_path(@post.profile.id)
   end
 
   private
+
+  def find_post
+    @post = current_user.posts.find(params[:id])
+  end
+
+  def find_profile
+    @profile = Profile.find(params[:profile_id])
+  end
 
   def post_params
     params.require(:post).permit(:content, :picture, :heading, :user_id, :profile_id)

@@ -51,9 +51,11 @@ gem 'rails_admin_impersonate'
 gem 'redis'
 gem 'searchkick'
 
+gem 'pry'
+gem 'pry-byebug'
+
 gem 'rails_12factor', group: :production
 gem 'simplecov', require: false, group: :test
-
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

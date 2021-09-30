@@ -1,19 +1,19 @@
+# frozen_string_literal: true
+
 class ProfilesController < ApplicationController
   before_action :load_profile, only: %i[show edit update]
   attr_accessor :profile
 
   def index
-    if params[:search].present?
-      Profile.reindex
-      @profiles = Profile.search(params[:search], load: true)
-    else
-      @profiles = Profile.all
-    end
+    @profiles = if params[:search].present?
+                  Profile.search(params[:search], load: true)
+                else
+                  Profile.all
+                end
   end
 
   def show
     @users = User.all
-    @profile = Profile.find(params[:id])
     @user = @profile.user
     @posts = @profile.posts
   end

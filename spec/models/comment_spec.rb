@@ -1,12 +1,13 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
-  it 'validates text_comment' do
-    should validate_presence_of :text_comment
+  it 'validates body' do
+    should validate_presence_of :body
   end
 
   it 'mount uploader' do
-
   end
 
   it 'belongs to' do

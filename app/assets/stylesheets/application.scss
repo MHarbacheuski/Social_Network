@@ -137,6 +137,17 @@
   }
 }
 
+.container_list_profiles{
+  width: 70%;
+  margin: auto;
+  max-width:initial;
+  > .row{
+    margin: 30px;
+    > .col{
+      padding: 0;
+    }
+  }
+}
 
 .topnav {
   background-color: #333;
@@ -151,18 +162,6 @@
   padding: 14px 16px;
   text-decoration: none;
   font-size: 17px;
-}
-
-/* Change the color of links on hover */
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-/* Add a color to the active/current link */
-.topnav a.active {
-  background-color: #04AA6D;
-  color: white;
 }
 
 .script {
@@ -197,7 +196,7 @@
   text-align: center;
   font-size: 35px;
   position: relative;
-  margin:0;
+  margin: auto;
 }
 
 .script_first_second_name{
@@ -351,6 +350,7 @@ button:hover, a:hover {
 
   .chat-message-container {
     padding: 5px;
+
     .avatar {
       margin: 5px;
     }
@@ -487,11 +487,14 @@ button:hover, a:hover {
 
 .dropdown-content{
   display: none;
-  text-align: left;
-  top: 10px;
+  top: -30px;
   transform-origin: 0px 0px;
   opacity: 1;
   transform: scaleX(1) scaleY(1);
+}
+
+.header_message_name{
+  font-size: 15px;
 }
 
 .panel-menu.item {

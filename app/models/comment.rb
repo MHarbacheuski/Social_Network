@@ -1,6 +1,10 @@
+# frozen_string_literal: true
+
 class Comment < ApplicationRecord
-  validates :text_comment, presence: true
   belongs_to :user
   belongs_to :post
+
   mount_uploader :picture, PictureUploader
+
+  validates :body, presence: true
 end

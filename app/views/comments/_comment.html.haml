@@ -1,18 +1,18 @@
 - @post.comments.order(created_at: :asc).each do |comment|
-  .card-post-list.mb-3.destroy{id: "post-id-#{@post.id}-#{comment.id}"}
+  .card-post-list.mb-3.destroy{ id: "post-id-#{@post.id}-#{comment.id}" }
     %div
       .card-header
         = link_to comment.user.profile, class: "text-decoration-none" do
-          = image_tag(comment.user.profile.avatar_attachment_path, :class => "rounded-circle mr-2",
+          = image_tag(comment.user.profile.avatar_attachment_path, style: "border-radius: 30%;",
                        size: "25x25", alt: "Profile pic")
         %strong
-          %span{style: "font-size:0.9rem"}
+          %span{ style: "font-size:0.9rem" }
             #{comment.user.profile.first_name} #{comment.user.profile.second_name}
         %br/
-        %small.text-muted.ml-1{style: "font-size:0.7rem"}
+        %small.text-muted.ml-1{ style: "font-size:0.7rem" }
           #{time_ago_in_words(comment.created_at)} ago
     .card-body
-      %p.card-text=comment.text_comment
+      %p.card-text=comment.body
       %div
         = image_tag comment.picture.url if comment.picture?
     - if current_user == comment.user

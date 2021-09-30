@@ -8,12 +8,6 @@
             #{room.profile.first_name} #{room.profile.second_name}
             .message-last.mb-3
               %p.mb-1
-                -# - if room.room_messages.where(user_id:3) == room.profile.id
-                -#   = image_tag(room.profile.avatar, style: "border-radius: 50%",
-                -#                        size: "30x30", alt: "Profile pic")  if room.profile.avatar.persisted?
-                -# - else
-                -#   = image_tag(room.user.profile.avatar, style: "border-radius: 50%",
-                -#                       size: "30x30", alt: "Profile pic")  if room.user.profile.avatar.persisted?
                 = room.room_messages.map{ |i| i.message }.last
         - @user.profile.rooms.each do |profile_room|
           = link_to room_path(profile_room), style: "color: black;" do

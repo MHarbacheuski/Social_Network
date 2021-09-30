@@ -6,7 +6,7 @@
       .col-md-6
         = simple_form_for([@post,@comment]) do |f|
           .form-group
-          = f.text_area :text_comment
+          = f.text_area :body
           %br/
           .custom-file
             = f.file_field :picture
