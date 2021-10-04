@@ -7,9 +7,6 @@ RSpec.describe Comment, type: :model do
     should validate_presence_of :body
   end
 
-  it 'mount uploader' do
-  end
-
   it 'belongs to' do
     should belong_to :user
     should belong_to :post

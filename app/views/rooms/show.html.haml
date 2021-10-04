@@ -16,9 +16,8 @@
         - @room_messages.each do |room_message|
           .chat-message-container{ class: "chat-message-container #{'me' if room_message.user == @user}" }
             .col
-              %small
-                = link_to profile_path(room_message.user.profile), style: "font-size: 15px;" do
-                  #{room_message.user.profile.first_name}
+              %small{ style: "font-size: 15px;" }
+                #{room_message.user.profile.first_name}
               .message-content
                 %p.mb-1
                   = room_message.message
@@ -30,8 +29,7 @@
       .d-none{ "data-role" => "message-template" }
         .chat-message-container
           .col
-            = link_to profile_path(@room.profile.id) do
-              .header_message_name{ "data-role" => "name" }
+            .header_message_name{ "data-role" => "name" }
             .message-content
               %p.mb-1{ "data-role" => "message-text" }
               .text-right

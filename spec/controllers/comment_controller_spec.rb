@@ -3,28 +3,29 @@
 require 'rails_helper'
 
 RSpec.describe CommentsController, type: :controller do
-  let(:comments) { create_list :comment, 3 } # work
-  let(:comment_params) do
+  let!(:user) { create :user }
+  let!(:post) { create :post }
+  let!(:posts) { create_list :post, 5 }
+  let!(:comment) { create :comment }
+  let!(:comments) { create_list :comment, 5 }
+
+  let!(:comment_params) do
     {
       comment: {
-        text_comment: Faker::Subscription.plan,
+        body: Faker::Subscription.plan,
         picture: nil,
-        user_id: 2
-      }.merge(post_id: 4)
+        user_id: user.id,
+        comment_id: comment.id
+      }.merge(post_id: post.id)
     }
   end
 
   context 'POST #create' do
-    subject { post :create, params: comment_params }
+    subject(:name) { post :create, comment_params }
 
-    # it 'returns comments' do
-    #   binding.pry
-    #   expect(assigns(:comments)).to match_array(comments)
-    # end
-
-    it 'save the item' do
-      # binding.pry
-      expect { subject }.to change(Comment, :count).by 1
+    it 'save the comment' do
+      binding.pry
+      expect { name }.to change { Comment.count }.by(1)
     end
 
     it 'redirect_to index' do
@@ -33,7 +34,7 @@ RSpec.describe CommentsController, type: :controller do
 
     context 'with invalid params' do
       let(:comment_params) do
-        { comment: { text_comment: -20 } }
+        { comment: { body: -20 } }
       end
       it 'dosnt save' do
         expect { subject }.to_not change(Comment, :count)

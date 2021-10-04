@@ -39,7 +39,7 @@ class RoomsController < ApplicationController
       flash[:success] = "Room #{@room.name} was updated successfully"
       redirect_to rooms_path
     else
-      render :new
+      render :edit
     end
   end
 
@@ -53,9 +53,9 @@ class RoomsController < ApplicationController
     @room = Room.find(params[:id])
     @user = @room.user
     if @room.destroy
-      redirect_to rooms_path(user_id: @user)
+      redirect_to profile_path(current_user.profile.id)
     else
-      flash[:alert] = 'ggg'
+      flash[:alert] = 'Room not deleted'
     end
   end
 

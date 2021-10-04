@@ -8,11 +8,11 @@
             #{room.profile.first_name} #{room.profile.second_name}
             .message-last.mb-3
               %p.mb-1
-                = room.room_messages.map{ |i| i.message }.last
+                = room.room_messages.map{ |i| truncate(i.message, length: 25) }.last
         - @user.profile.rooms.each do |profile_room|
           = link_to room_path(profile_room), style: "color: black;" do
             = render 'rooms/room_user_image', room: profile_room
             #{profile_room.user.profile.first_name} #{profile_room.user.profile.second_name}
             .message-last.mb-3
               %p.mb-1
-                = profile_room.room_messages.map{ |i| i.message }.last
+                = profile_room.room_messages.map{ |i| truncate(i.message, length: 25) }.last
