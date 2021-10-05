@@ -12,9 +12,9 @@ class CommentsController < ApplicationController
   def create
     @comment = current_user.comments.build(comment_params)
     if @comment.save
-      redirect_to profile_path(@post.profile.id), notice: 'Success'
+      redirect_to profile_path(@post.profile), notice: t('controllers.comment.success')
     else
-      redirect_to profile_path(@post.profile.id), notice: 'Error, comment field cannot be empty'
+      redirect_to profile_path(@post.profile), notice: t('controllers.comment.alert_create')
     end
   end
 
@@ -22,20 +22,20 @@ class CommentsController < ApplicationController
     respond_to do |format|
       if @comment.destroy
         format.js
-        format.html { redirect_to @comment, notice: 'Success' }
+        format.html { redirect_to @comment, notice: t('controllers.comment.success') }
         format.json { head :no_content }
       else
-        flash[:alert] = 'Сomment has not been deleted'
+        flash[:alert] = t('controllers.comment.alert_destroy')
       end
     end
   end
 
   def update
     if @comment.update(comment_params)
-      flash[:notice] = t('controllers.update')
-      redirect_to profile_path(@post.profile.id)
+      flash[:notice] = t('controllers.comment.alert_update')
+      redirect_to profile_path(@post.profile)
     else
-      flash[:alert] = 'Please fill all fields correctly'
+      flash[:alert] = t('controllers.comment.alert_update')
       render 'edit'
     end
   end

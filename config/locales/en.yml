@@ -1,17 +1,22 @@
 en:
   controllers:
     user:
-    successfully_updated: 'Profile successfully updated'
+      successfully_updated: 'Profile successfully updated'
     post:
-    update: 'Post was updated'
-    destroy: 'Post successfully destroyed'
-    create: 'Post successfully created'
-    not_create: 'Please fill all fields correctly'
-    not_update: 'Please fill all fields correctly'
-    not_delete: 'Post has not been deleted'
+      update: 'Post was updated'
+      destroy: 'Post successfully destroyed'
+      create: 'Post successfully created'
+      not_create: 'Please fill all fields correctly'
+      not_update: 'Please fill all fields correctly'
+      not_delete: 'Post has not been deleted'
+    comment:
+      success: 'Success'
+      alert_create: 'Error, comment field cannot be save'
+      alert_destroy: 'Сomment has not been deleted'
+      update: 'Сomment updated successfully'
+      alert_update: 'Please fill all fields correctly'
   layouts:
     application:
-      home: 'Start Page'
       theme_project: 'Social Network'
       welcome: 'Welcome!'
   include:
