@@ -36,5 +36,5 @@ Write in url http://localhost:3000/admin or for prod: https://rails-social-netwo
 - Username: admin
 - password: 765ceyz9@KK3
 
-# Ссылка на heroku: 
+# Link to heroku: 
 https://rails-social-network-01.herokuapp.com
