@@ -51,7 +51,8 @@ gem 'rails_admin_impersonate'
 gem 'redis'
 gem 'searchkick'
 
-
+gem 'pry'
+gem 'pry-byebug'
 gem 'whenever', require: false
 
 

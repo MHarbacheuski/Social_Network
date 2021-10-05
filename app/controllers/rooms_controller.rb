@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class RoomsController < ApplicationController
-  before_action :load_entities
+  before_action :load_entities, only: %i[show destroy]
 
   def index
     @rooms = Room.all
@@ -44,14 +44,11 @@ class RoomsController < ApplicationController
   end
 
   def show
-    @room = Room.find(params[:id])
     @room_message = RoomMessage.create(room: @room)
     @room_messages = @room.room_messages.includes(:user)
   end
 
   def destroy
-    @room = Room.find(params[:id])
-    @user = @room.user
     if @room.destroy
       redirect_to profile_path(current_user.profile.id)
     else
