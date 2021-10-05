@@ -39,12 +39,12 @@ config/application.yml
 
 /config/credentials/development.key
 
+/config/credentials/production.key
+
 /config/credentials/devise.key
 
 /config/credentials/test.key
 coverage
-
-/config/credentials/production.key
 
 # Ignoring loaded test images.
 /public/uploads
