@@ -4,33 +4,37 @@ Social Network is name "Friends of interest"
 
 * Ruby version - 3.0.1
 
-* Rails version - 6.1.4
+* Database: Postgres (PostgreSQL) 13.3
 
-* Database: Postgres
-
-Перед запуском проекта необходимо сделать следующее:
-1. Из database.yml.sample скопировать config в database.yml
-# mv config/database.yml.sample config/database.yml
-
-2. Для решения зависимостей и установкой недостающих гемов, выполнить:
+Before starting the project, you need to do the following:
+1. To solve dependencies and install missing gems, run:
    bundle install
-3. Запустить миграции: rake db:migrate
-4. Для запуска проекта используется следующая команда в терминале: rails s
+2. Copy the config from database.yml.sample to database.yml
+# cp config/database.yml.sample config/database.yml
 
-Самое сложное задание:
-- Реализовать чат между пользователями в системе, с получением сообщений в режиме реального времени(без перезагрузки страницы). 
+3. Creates the database/Loads the schema/Seeds the database: rails db:setup
+4. To start the project, use the following command in the terminal: rails s
 
-Самое интересное задание:
-- Реализовать чат между пользователями в системе, с получением сообщений в режиме реального времени(без перезагрузки страницы).
+The hardest task:
+- Implement a chat between users in the system, with receiving messages in real time (without reloading the page). 
 
-Что можно было бы сделать, если бы было больше времени:
-- добавить паттерны
-- более детально продумать стратегию по которой будет тестироваться проект
-- в списке друзей иметь возможность показать пользователей online
-- На главной странице отображать вкладку Recent Activities друзей – появился онлайн, стал
-  оффлайн, добавил интерес, оставил комментарий на чьей-то стене и т.п.
-- Добавить фильтры для сортировки друзей, постов и тд.
-- 
+The most interesting task:
+- Thought over the relationship between models that are designed for chat and implement the logic of interaction.
+
+What could have been done if there had been more time:
+- think in more detail about the strategy by which the project will be tested
+- in the friends list to be able to show users online
+- On the main page, display the Recent Activities tab of friends - appeared online, became
+  offline, added interest, left a comment on someone's wall, etc.
+- Add filters to sort friends, posts, and more.
+- autocompletion with ElasticSearch
+- make better ui
+- add a comment without rebooting
+
+How to log in as admin?
+Write in url http://localhost:3000/admin or for prod: https://rails-social-network-01.herokuapp.com/admin
+- Username: admin
+- password: 765ceyz9@KK3
 
 # Ссылка на heroku: 
-https://rails-social-network-01.herokuapp.com/users/sign_in
+https://rails-social-network-01.herokuapp.com
