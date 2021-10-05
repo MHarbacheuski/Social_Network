@@ -2,6 +2,6 @@
 
 set :output, 'log/cron.log'
 
-every 2.minute do
+every 10.minute do
   rake 'sample:test'
 end
