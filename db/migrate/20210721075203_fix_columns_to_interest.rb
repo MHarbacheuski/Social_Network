@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class FixColumnsToInterest < ActiveRecord::Migration[6.1]
   def change
     rename_column :interests, :type, :title

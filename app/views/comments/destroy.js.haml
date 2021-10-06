@@ -1,0 +1,4 @@
+var post_id = "#{j @post.id}";
+var comment_id = "#{j @comment.id}";
+$(`#post-id-${post_id}-${comment_id}`).parent().html("#{ j render 'comments_list' }")
+

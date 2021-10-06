@@ -8,20 +8,20 @@
         = f.hidden_field :id, value:current_user.id
         .form-group
           = f.label :username
-          = f.text_field :username, class:"form-control"
+          = f.text_field :username, class: "form-control"
         .form-group
           = f.label :first_name
-          = f.text_field :first_name, class:"form-control"
+          = f.text_field :first_name, class: "form-control"
         .form-group
           = f.label :second_name
-          = f.text_field :second_name, class:"form-control"
+          = f.text_field :second_name, class: "form-control"
         .form-group
           = f.label :bio
-          = f.text_field :bio, class:"form-control"
+          = f.text_field :bio, class: "form-control"
         .field.mb-4
           = f.date_field :birthday, autofocus: true
         .custom-file
-          = f.label :avatar, class:"custom-file-label"
-          = f.file_field :avatar, class:"custom-file-input"
-        = f.submit "Set changes", class:"btn btn-secondary", style:"margin-top:1rem;"
+          = f.label :avatar, class: "custom-file-label"
+          = f.file_field :avatar, class: "custom-file-input"
+        = f.submit "Set changes", class: "btn btn-secondary", style: "margin-top:1rem;"
   .col-md-3

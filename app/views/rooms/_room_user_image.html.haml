@@ -1,0 +1,6 @@
+- if room.user.profile.id == current_user.profile.id
+  = image_tag(room.profile.avatar_attachment_path, style: "border-radius: 50%",
+                       size: "30x30", alt: "Profile pic")
+- else
+  = image_tag(room.user.profile.avatar_attachment_path, style: "border-radius: 50%",
+                      size: "30x30", alt: "Profile pic")

@@ -1,0 +1,25 @@
+- if @user.friends.presence
+  - if current_user == @user
+    .col.s3
+      %a.script_friends
+        = t('shared.right_sidebar.my_friends')
+      %br/
+      - @user.friends.limit(5).each do |friend|
+        .chip
+          = image_tag(friend.profile.avatar_attachment_path, class: "medium-profile-image-home")
+          = link_to friend.profile do
+            #{friend.profile.first_name} #{friend.profile.second_name}
+        - if @user == current_user
+          = link_to t('shared.right_sidebar.delete_friend'), invitations_destroy_path(invitation_id: Invitation.find_invitation(@user.id, friend.id)),
+                        data: { confirm: "Are you sure you want to delete this friend?" }, class: "waves-effect waves-light btn-small"
+        %br/
+  - else
+    .col.s3
+      %a.script_friends
+        #{@user.profile.first_name} #{t('shared.right_sidebar.user_friends')}
+      %br/
+      - @user.friends.limit(5).each do |friend|
+        .chip
+          = image_tag(friend.profile.avatar_attachment_path, class: "medium-profile-image-home")
+          = link_to friend.profile do
+            #{friend.profile.first_name} #{friend.profile.second_name}

@@ -80,6 +80,8 @@ Rails.application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
+  config.require_master_key = true
+
   # Use a different logger for distributed setups.
   # require "syslog/logger"
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
@@ -92,18 +94,27 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  config.web_socket_server_url = 'wss://action-cable-example.herokuapp.com/cable'
+  config.action_cable.allowed_request_origins = ['https://action-cable-example.herokuapp.com', 'http://action-cable-example.herokuapp.com']
 
   config.action_mailer.delivery_method = :smtp
-  host = 'localhost:3000' # replace with your own url
+  host = 'rails-social-network-01.herokuapp.com' # replace with your own url
   config.action_mailer.default_url_options = { host: host }
+
+  address = Rails.application.credentials.smtp[:address]
+  port = Rails.application.credentials.smtp[:port]
+  user_name = Rails.application.credentials.smtp[:user_name]
+  password = Rails.application.credentials.smtp[:password]
+  authentication = Rails.application.credentials.smtp[:authentication]
 
   # SMTP settings for gmail
   config.action_mailer.smtp_settings = {
-    address: 'smtp.gmail.com',
-    port: 587,
-    user_name: 'mgorb71@gmail.com',
-    password: 'ishdemcnnjdkwmxe',
-    authentication: 'plain',
+    address: address,
+    port: port,
+    user_name: user_name,
+    password: password,
+    authentication: authentication,
+    domain: 'heroku.com',
     enable_starttls_auto: true
   }
 end

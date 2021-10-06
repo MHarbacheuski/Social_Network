@@ -1,25 +1,60 @@
 en:
   controllers:
     user:
-    successfully_updated: 'Profile successfully updated'
+      successfully_updated: 'Profile successfully updated'
+    profile:
+      successfully_changed: 'Profile was successfully changed'
+    post:
+      update: 'Post was updated'
+      destroy: 'Post successfully destroyed'
+      create: 'Post successfully created'
+      not_create: 'Please fill all fields correctly'
+      not_update: 'Please fill all fields correctly'
+      not_delete: 'Post has not been deleted'
+    comment:
+      success: 'Success'
+      alert_create: 'Error, comment field cannot be save'
+      alert_destroy: 'Сomment has not been deleted'
+      update: 'Сomment updated successfully'
+      alert_update: 'Please fill all fields correctly'
+    like:
+      create: 'You can`t like more than once'
+      notice: 'Cannot unlike'
+    user_interest:
+      success_add_interest: 'Interest was added'
+      error: 'Please choose interests'
+      update: 'Interests successfully updated'
   layouts:
     application:
-      home: 'Start Page'
       theme_project: 'Social Network'
       welcome: 'Welcome!'
-      sign_in: "Let's sign in"
-      or: 'or'
-      sign_up: 'Registration'
-      name: 'Friends of interest'
   include:
     auth:
-      exit: 'Exit'
+      exit: 'Log Out'
       edit: 'Edit Account'
       sign_in: 'Sign in'
       sign_up: 'Sign up'
       welcome: 'Welcome'
-      profile: 'My profile'
-  users_interests:
-    new:
-      success_add_interest: 'Interest was added'
-      error: 'Please choose interests'
+      profile: 'Profile'
+  shared:
+    left_sidebar:
+      birthday: 'Birthday:'
+      not_birthday: 'Birthday: not indicated'
+      not_locate: 'Location: not indicated'
+      delete_friend: 'Delete Friend'
+      add_friend: 'Add Friend'
+      send_message: 'Send Message'
+      locate: 'Location:'
+      my_friends: 'My Friends'
+      my_messages: 'My Messages'
+      add_post: 'Add Post'
+      find_post: 'Find Post'
+      edit_profile: 'Edit Profile'
+      my_interests: 'My Interests'
+      interests: 'Interests'
+      not_interests: 'Interests empty'
+      wait_friendship: 'Waiting for a response from friendship'
+    right_sidebar:
+      my_friends: 'My Friends'
+      delete_friend: 'Delete Friend'
+      user_friends: 'Friends'

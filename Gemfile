@@ -31,44 +31,50 @@ gem 'bootstrap_form'
 gem 'devise'
 gem 'jquery-turbolinks'
 gem 'materialize-sass'
-gem 'pry'
-gem 'pry-byebug'
+
 gem 'simple_form'
-# Reduces boot times through caching; required in config/boot.rb
-gem 'factory_bot'
+
+gem 'carrierwave'
+
+gem 'elasticsearch', '~> 7.13.3'
+gem 'searchkick'
+
 gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
 gem 'figaro'
+gem 'fog'
 gem 'haml'
+gem 'jquery-rails'
+gem 'mini_magick'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-rails_csrf_protection'
 gem 'rails_admin'
 gem 'rails_admin_impersonate'
+gem 'redis'
+
+gem 'whenever', require: false
+
+gem 'rails_12factor', group: :production
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'factory_bot'
+  gem 'rails-controller-testing'
   gem 'rspec-rails'
+  gem 'shoulda-matchers'
+  gem 'simplecov', require: false
 end
 
 group :development do
-  # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 4.1.0'
-  # Display performance information such as SQL time and flame graphs for each request in your browser.
-  # Can be configured to work on production as well see: https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
   gem 'listen', '~> 3.3'
   gem 'rack-mini-profiler', '~> 2.0'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
 
 group :test do
-  # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 3.26'
   gem 'selenium-webdriver'
-  # Easy installation and use of web drivers to run system tests with browsers
-  gem 'shoulda-matchers'
   gem 'webdrivers'
 end
 
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

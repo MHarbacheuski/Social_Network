@@ -1,0 +1,2 @@
+var dummy = "#{j @post.id}";
+$(`#post-id-${dummy} a`).parent().html("#{ j render 'comments_list' } #{ j render 'form' }")

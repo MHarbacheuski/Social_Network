@@ -1,0 +1,7 @@
+= simple_form_for @room do |form|
+  = form.simple_fields_for :room_messages do |f|
+    = f.input :message
+    = f.input :user_id, as: :hidden
+  = form.submit "Send", class: 'btn btn-primary'
+  = form.input :user_id, as: :hidden
+  = form.input :profile_id, as: :hidden

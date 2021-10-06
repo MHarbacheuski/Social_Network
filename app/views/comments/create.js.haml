@@ -1,0 +1,4 @@
+var post_id = "#{j @post.id}";
+var comment_id = "#{j @comment.id}";
+
+$(`#comments`).append("#{ j render 'comment' }")

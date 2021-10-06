@@ -1,0 +1,6 @@
+%div{ style: "margin: 15px" }
+.container_for_profiles
+  = form_tag profiles_path, method: :get do
+    %p
+      = text_field_tag :search, params[:search]
+      = submit_tag "Search", name: nil

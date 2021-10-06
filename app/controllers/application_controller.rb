@@ -12,18 +12,23 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
     user_path(resource)
+    if @user.profile.presence
+      profile_path(resource.profile.id)
+    else
+      Profile.create!(user_id: resource.id)
+      new_users_interest_path
+    end
   end
 
   protected
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up) do |u|
-      u.permit(:username, :first_name, :second_name, :avatar, :email, :password, :password_confirmation)
+      u.permit(:email, :password, :password_confirmation, profile_attributes: %i[first_name second_name avatar])
     end
 
     devise_parameter_sanitizer.permit(:account_update) do |u|
-      u.permit(:username, :first_name, :second_name,
-               :email, :password, :current_password)
+      u.permit(:email, :password, :current_password)
     end
   end
 end

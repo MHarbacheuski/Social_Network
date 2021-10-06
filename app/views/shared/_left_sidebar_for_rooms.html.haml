@@ -1,0 +1,28 @@
+.container_two
+  .col.s3
+    %div
+      .margin-top
+        .center-content
+          = image_tag(@user.profile.avatar_attachment_path, class: "medium-profile-image-home")
+          %span.text-dark{style: "font-size:2.7rem;"}
+          .script_first_second_name
+            - if @user.profile.first_name && @user.profile.second_name
+              #{@user.profile.first_name} #{@user.profile.second_name}
+      %br
+    - if current_user == @user
+      %ul.collapsible
+        %li
+          .folding-header
+            %i.material-icons add
+            %span= link_to "Add Post", new_post_path(profile_id: current_user.profile.id), style: "color: black;"
+        %li
+          .folding-header
+            %i.material-icons search
+            %span= link_to "Find Post", posts_path(id:current_user.profile.id), style: "color: black;"
+        %li
+          .folding-header
+            %i.material-icons settings
+            %span= link_to "Edit Profile", edit_profile_path(current_user.profile.id), style: "color: black;"
+
+
+

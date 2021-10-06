@@ -1,0 +1,20 @@
+.container
+  .row
+    .col-md-4
+    .col-md-4
+      .container
+        - if current_user == @profile.user
+          = image_tag @profile.avatar_attachment_path ,:class=>"medium-profile-image center-content"
+          %h3.center-content
+            #{@profile.first_name} #{@profile.second_name}
+          %h5.center-content
+            %span= link_to "view my profile", @profile
+            %span= pluralize(@profile.posts.count, "post")
+        - else
+          = image_tag @profile.avatar_attachment_path ,:class=>"medium-profile-image center-content"
+          %h3.center-content
+            #{@profile.first_name} #{@profile.second_name}
+          %h5.center-content
+            %span= link_to "view #{@profile.first_name} profile", @profile
+            %span= pluralize(@profile.posts.count, "post")
+    .col-md-4
