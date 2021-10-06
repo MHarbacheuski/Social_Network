@@ -24,9 +24,9 @@ class PostsController < ApplicationController
     @profile = current_user.profile
     @post = current_user.posts.create(post_params)
     if @post.save
-      flash[:notice] = t('controllers.create')
+      flash[:notice] = t('controllers.post.create')
     else
-      flash[:alert] =  t('controllers.not_create')
+      flash[:alert] =  t('controllers.post.not_create')
     end
     redirect_to profile_path(@post.profile.id)
   end
@@ -34,10 +34,10 @@ class PostsController < ApplicationController
   def update
     @profile = current_user.profile
     if @post.update(post_params)
-      flash[:notice] = t('controllers.update')
+      flash[:notice] = t('controllers.post.update')
       redirect_to profile_path(@post.profile.id)
     else
-      flash[:alert] = t('controllers.not_update')
+      flash[:alert] = t('controllers.post.not_update')
       render 'edit'
     end
   end
@@ -50,9 +50,9 @@ class PostsController < ApplicationController
 
   def destroy
     if @post.destroy
-      flash[:notice] = t('controllers.destroy')
+      flash[:notice] = t('controllers.post.destroy')
     else
-      flash[:alert] = t('controllers.not_delete')
+      flash[:alert] = t('controllers.post.not_delete')
     end
     redirect_to profile_path(@post.profile.id)
   end

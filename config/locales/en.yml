@@ -2,6 +2,8 @@ en:
   controllers:
     user:
       successfully_updated: 'Profile successfully updated'
+    profile:
+      successfully_changed: 'Profile was successfully changed'
     post:
       update: 'Post was updated'
       destroy: 'Post successfully destroyed'
@@ -15,6 +17,13 @@ en:
       alert_destroy: 'Сomment has not been deleted'
       update: 'Сomment updated successfully'
       alert_update: 'Please fill all fields correctly'
+    like:
+      create: 'You can`t like more than once'
+      notice: 'Cannot unlike'
+    user_interest:
+      success_add_interest: 'Interest was added'
+      error: 'Please choose interests'
+      update: 'Interests successfully updated'
   layouts:
     application:
       theme_project: 'Social Network'
@@ -49,7 +58,3 @@ en:
       my_friends: 'My Friends'
       delete_friend: 'Delete Friend'
       user_friends: 'Friends'
-  users_interests:
-    new:
-      success_add_interest: 'Interest was added'
-      error: 'Please choose interests'

@@ -23,7 +23,7 @@ class ProfilesController < ApplicationController
   def update
     change_avatar if params[:avatar]
     if @profile.update(profile_params)
-      redirect_to profile_path(profile), notice: 'Profile was successfully changed'
+      redirect_to profile_path(profile), notice: t('controllers.profile.successfully_changed')
     else
       render :edit
     end

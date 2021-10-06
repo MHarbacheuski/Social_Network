@@ -2,21 +2,23 @@
 
 class InvitationsController < ApplicationController
   def create
-    id1 = params[:ids][:id1]
-    id2 = params[:ids][:id2]
-    @invitation = Invitation.create(user_id: id1, friend_id: id2)
-    redirect_to profile_path(id: current_user.profile.id) if @invitation.save
+    friend = params[:ids][:id2]
+    @invitation = current_user.invitations.create(friend_id: friend)
+    @invitation.save
+    redirect_to profile_path(id: current_user.profile.id)
   end
 
   def destroy
     invitation = Invitation.find(params[:invitation_id])
-    redirect_to profile_path(id: current_user.profile.id) if invitation.destroy
+    invitation.destroy
+    redirect_to profile_path(id: current_user.profile.id)
   end
 
   def edit; end
 
   def update
     invitation = Invitation.find(params[:invitation_id])
-    redirect_to profile_path(current_user.profile.id) if invitation.update(confirmed: true)
+    invitation.update(confirmed: true)
+    redirect_to profile_path(current_user.profile.id)
   end
 end

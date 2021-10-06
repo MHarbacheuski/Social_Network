@@ -26,7 +26,6 @@
   width: 50%;
 }
 
-/* Clear floats after the columns */
 .row:after {
   content: "";
   display: table;
@@ -38,14 +37,14 @@
   padding: 3px;
   border-radius: 10%;
   margin: auto;
-  line-height: 25px;
+  line-height: 30px;
 }
 
-.success {background-color: #4CAF50;} /* Green */
-.info {background-color: #2196F3;} /* Blue */
-.warning {background-color: #ff9800;} /* Orange */
-.danger {background-color: #f44336;} /* Red */
-.other {background-color: #e7e7e7; color: black;} /* Gray */
+.success {background-color: #4CAF50;}
+.info {background-color: #2196F3;}
+.warning {background-color: #ff9800;}
+.danger {background-color: #f44336;}
+.other {background-color: #e7e7e7; color: black;}
 
 .background_image {
   background: url(1.jpg)  no-repeat center center;
@@ -75,10 +74,7 @@
 
 
 .margin-top {
-  //background: #fc3; /* Цвет фона */
-  //border: 2px solid black; /* Параметры рамки */
-  //padding: 20px; /* Поля вокруг текста */
-  margin-top: 8%; /* Отступ сверху */
+  margin-top: 8%;
 }
 
 .center-content {
@@ -154,7 +150,6 @@
   overflow: hidden;
 }
 
-/* Style the links inside the navigation bar */
 .topnav a {
   float: left;
   color: #f2f2f2;
@@ -309,28 +304,22 @@ button:hover, a:hover {
   max-width:initial;
 }
 
-
-
-/* Darker chat container */
 .darker {
   border-color: #ccc;
   background-color: #ddd;
 }
 
-/* Clear floats */
 .container_for_posts::after {
   content: "";
   clear: both;
   display: table;
 }
 
-/* Style time text */
 .time-right {
   float: right;
   color: #aaa;
 }
 
-/* Style time text */
 .time-left {
   float: left;
   color: #999;
@@ -429,12 +418,10 @@ button:hover, a:hover {
   border-bottom: 1px solid #ddd;
 }
 
-/* line 10, ../../.rvm/gems/ruby-3.0.1/gems/materialize-sass-1.0.0/assets/stylesheets/materialize/components/_collapsible.scss */
 .folding-header:focus {
   outline: 0;
 }
 
-/* line 22, ../../.rvm/gems/ruby-3.0.1/gems/materialize-sass-1.0.0/assets/stylesheets/materialize/components/_collapsible.scss */
 .folding-header i {
   width: 2rem;
   font-size: 1.6rem;
