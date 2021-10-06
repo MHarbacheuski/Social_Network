@@ -13,10 +13,7 @@ class Invitation < ApplicationRecord
   end
 
   def self.find_invitation(id1, id2)
-    if Invitation.where(user_id: id1, friend_id: id2, confirmed: true).empty?
-      Invitation.where(user_id: id2, friend_id: id1, confirmed: true)[0].id
-    else
-      Invitation.where(user_id: id1, friend_id: id2, confirmed: true)[0].id
-    end
+    Invitation.where(user_id: id1, friend_id: id2,
+                     confirmed: true).or(Invitation.where(user_id: id2, friend_id: id1, confirmed: true))[0].id
   end
 end
