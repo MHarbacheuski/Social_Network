@@ -14,6 +14,6 @@ class Invitation < ApplicationRecord
 
   def self.find_invitation(id1, id2)
     Invitation.where(user_id: id1, friend_id: id2,
-                     confirmed: true).or(Invitation.where(user_id: id2, friend_id: id1, confirmed: true))[0].id
+                     confirmed: true).or(Invitation.where(user_id: id2, friend_id: id1, confirmed: true)).first
   end
 end

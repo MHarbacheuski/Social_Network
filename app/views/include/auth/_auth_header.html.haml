@@ -2,7 +2,6 @@
   %a.script_company_name
     Friends of interests
   = link_to t('include.auth.profile'), profile_path(current_user.profile.id)
-  -# = link_to t('include.auth.profile'), user_path(current_user.id)
   = link_to t('include.auth.edit'), edit_user_registration_path
   = link_to t('include.auth.exit'), destroy_user_session_path,
     method: :delete
