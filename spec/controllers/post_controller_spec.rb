@@ -3,13 +3,11 @@
 require 'rails_helper'
 
 RSpec.describe PostsController, type: :controller do
-  render_views
 
   let!(:user) { create :user }
   let!(:profile) { create :profile }
   let!(:post) { create :post }
-  let!(:posts) { create_list :post, 5, user: user }
-  let!(:params) { { id: profile.id } }
+  let!(:posts) { create_list :post, 5 }
 
   let!(:post_params) do
     {
@@ -33,7 +31,7 @@ RSpec.describe PostsController, type: :controller do
     get :index
     it 'returns posts' do
       is_expected.to render_template :index
-      expect(assigns(:posts)).to match_array([post])
+      expect(assigns(:posts)).to match_array(post)
     end
   end
 

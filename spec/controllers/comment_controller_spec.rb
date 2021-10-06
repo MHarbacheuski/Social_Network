@@ -24,7 +24,6 @@ RSpec.describe CommentsController, type: :controller do
     subject(:name) { post :create, comment_params }
 
     it 'save the comment' do
-      binding.pry
       expect { name }.to change { Comment.count }.by(1)
     end
 

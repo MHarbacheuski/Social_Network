@@ -33,6 +33,8 @@ gem 'jquery-turbolinks'
 gem 'materialize-sass'
 
 gem 'simple_form'
+gem 'pry'
+gem 'pry-byebug'
 
 gem 'carrierwave'
 

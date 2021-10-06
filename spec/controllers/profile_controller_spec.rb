@@ -5,8 +5,8 @@ require 'rails_helper'
 RSpec.describe ProfilesController, type: :controller do
   # let(:users) { create_list :user, 3 } #work
   # let!(:profiles) { create_list :profile, 5 }
-  let!(:profile) { create :profile }
   let!(:user) { create :user }
+  let!(:profile) { create :profile }
 
   let!(:profile_params) do
     {
@@ -34,10 +34,11 @@ RSpec.describe ProfilesController, type: :controller do
     end
   end
 
-  context 'PUT #update' do
-    subject { put :update, params: profile_params }
+  context 'PATCH #update' do
+    subject { patch :update, id: profile.id }
 
     it 'save the item' do
+      binding.pry
       expect { subject }.to change(Profile, :count)
     end
 
@@ -46,7 +47,7 @@ RSpec.describe ProfilesController, type: :controller do
     end
 
     context 'with invalid params' do
-      let(:profile_params) do
+      let!(:profile_params) do
         { profile: { first_name: -20 } }
       end
       it 'dosn`t save' do
