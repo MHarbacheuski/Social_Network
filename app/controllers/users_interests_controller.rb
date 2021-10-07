@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class UsersInterestsController < ApplicationController
-
   def new
     @categories = Category.all.includes(:interests)
   end
