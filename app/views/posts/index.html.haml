@@ -1,4 +1,7 @@
-.container
-  =render 'search_posts'
+- if @user == current_user
   .container
-    =render 'users/posts_list_for_search'
+    = render 'search_posts'
+    .container
+      = render 'users/posts_list_for_search'
+- else
+  Access closed
