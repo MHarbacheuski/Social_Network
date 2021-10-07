@@ -2,7 +2,6 @@
 
 class ProfilesController < ApplicationController
   before_action :load_profile, only: %i[show edit update]
-  before_action :check_profile_access!
   attr_accessor :profile
 
   def index
@@ -19,7 +18,11 @@ class ProfilesController < ApplicationController
     @posts = @profile.posts
   end
 
-  def edit; end
+  def edit
+    if current_user.profile.id != params[:id].to_i
+      redirect_to profile_path(current_user.profile), notice: 'Access closed'
+    end
+  end
 
   def update
     change_avatar if params[:avatar]
@@ -31,12 +34,6 @@ class ProfilesController < ApplicationController
   end
 
   private
-
-  def check_profile_access!
-    if current_user.profile.id != params[:id].to_i
-      redirect_to profile_path(current_user.profile), notice: 'Access closed'
-    end
-  end
 
   def change_avatar
     params[:avatar].empty? ? current_user.profile.avatar.purge : current_user.profile.avatar.attach(params[:avatar])
