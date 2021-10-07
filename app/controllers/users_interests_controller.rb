@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class UsersInterestsController < ApplicationController
-  before_action :authenticate_user!
 
   def new
     @categories = Category.all.includes(:interests)
