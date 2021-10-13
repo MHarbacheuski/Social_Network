@@ -1,4 +1,10 @@
 %p.card-text
   = activity.owner.profile.full_name if activity.owner
   removed a comment on the post titled
-  = activity.parameters[:post] ? [activity.parameters[:post][:heading], ' (Removed Post)'].join : 'Removed Post'
+  - post = activity.parameters[:post]
+  - if post.present?
+    = link_to activity.parameters[:post][:heading], activity.parameters[:post]
+  - elsif post.present? && Post.find_by_id(post[:post][:id]).nil?
+    = [activity.parameters[:post][:heading], ' (Removed Post)'].join
+  - else
+    Removed Post

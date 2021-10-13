@@ -4,4 +4,8 @@
   - if activity.trackable
     = link_to activity.trackable.heading, activity.trackable
   - else
-    = activity.parameters[:post] ? [activity.parameters[:post][:heading], ' (Removed Post)'].join : 'Removed Post'
+    - post = activity.parameters[:post]
+    - if post.present? && Post.find_by_id(post[:id]).present?
+      = [post[:heading], ' (Removed Post)'].join
+    - else
+      Removed Post
