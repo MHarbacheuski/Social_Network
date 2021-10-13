@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get 'invitations/create'
   get 'invitations/update'
   get 'invitations/destroy'
-  devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks', registrations: 'registrations' }
+  devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks', registrations: 'registrations', sessions: 'users/sessions' }
   resources :users
   resources :users_interests
   resources :profiles

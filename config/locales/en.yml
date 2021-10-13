@@ -55,6 +55,10 @@ en:
       interests: 'Interests'
       not_interests: 'Interests empty'
       wait_friendship: 'Waiting for a response from friendship'
+      friends:
+        all: 'All'
+        online: 'Online'
+        offline: 'Offline'
     right_sidebar:
       my_friends: 'My Friends'
       delete_friend: 'Delete Friend'

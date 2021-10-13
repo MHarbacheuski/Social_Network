@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-  include PublicActivity::Model
-  tracked
+  include PublicActivity::Common
+
   has_one :profile, dependent: :destroy
   has_one_attached :avatar
 
@@ -21,6 +21,14 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   devise :omniauthable, omniauth_providers: [:google_oauth2]
+
+  scope :friends_online, lambda { |ref|
+    ref.friends.where(status: true)
+  }
+
+  scope :friends_offline, lambda { |ref|
+    ref.friends.where(status: false)
+  }
 
   def self.from_omniauth(provider_data)
     where(provider: provider_data.provider, uid: provider_data.uid).first_or_create do |user|

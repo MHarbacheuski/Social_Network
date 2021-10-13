@@ -14,7 +14,6 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    @user.update_attribute(:status, true)
     user_path(resource)
     if @user.profile.presence
       profile_path(resource.profile.id)

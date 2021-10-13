@@ -55,6 +55,10 @@ ru:
       interests: 'Интересы'
       not_interests: 'Нету интересов'
       wait_friendship: 'Жду ответа от дружбы'
+      friends:
+        all: 'Все'
+        online: 'Друзья онлайн'
+        offline: 'Offline Друзья'
     right_sidebar:
       my_friends: 'Мои Друзья'
       delete_friend: 'Удалить Друга'
