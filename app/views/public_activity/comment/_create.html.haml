@@ -1,0 +1,7 @@
+%p.card-text
+  = activity.owner.profile.full_name if activity.owner
+  left a comment on the post titled
+  - if activity.trackable
+    = link_to activity.trackable.post.heading, activity.trackable.post
+  - else
+    Removed Post

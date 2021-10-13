@@ -36,6 +36,7 @@ ru:
       sign_up: 'Регистрация'
       welcome: 'Привет'
       profile: 'Профиль'
+      activity: 'Мероприятия для друзей'
   shared:
     left_sidebar:
       birthday: 'Дата Рождения:'

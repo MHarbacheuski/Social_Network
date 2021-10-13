@@ -43,4 +43,7 @@ config/application.yml
 /config/credentials/test.key
 /config/credentials/devise.key
 
+/config/credentials/bk_dv.yml.enc
+/config/bk_cr.yml.enc
+
 coverage

@@ -1,0 +1,18 @@
+= stylesheet_link_tag 'activities'
+
+.container
+  %h3= t('include.auth.activity')
+  %ul
+    - @activities.each do |activity|
+      %li
+        .card.mb-3{style: 'max-width: 100%;'}
+          .row.g-0
+            .col
+              - if activity.owner.profile && activity.owner.profile.avatar.attached?
+                = image_tag(activity.owner.profile.avatar, style: 'width: 100px; height: 100px;', class: "medium-profile-image-home") if activity.owner.profile.avatar.persisted?
+              - else
+                = image_tag activity.owner.profile.avatar_attachment_path, style: 'width: 100px; height: 100px;', class: "medium-profile-image-home"
+            .col-8
+              .card-body{style: 'text-align:start'}
+                %p.card-subtitle= [activity.created_at.to_date, "#{I18n.locale == :en ? time_ago_in_words(activity.created_at) : Time.at(Time.now - activity.created_at).utc.strftime("%H:%M:%S")} ago"].join(' ')
+                = render_activity activity

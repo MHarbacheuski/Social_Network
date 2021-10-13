@@ -23,6 +23,7 @@ class PostsController < ApplicationController
     @profile = current_user.profile
     @post = current_user.posts.create(post_params)
     if @post.save
+      @post.create_activity :create, owner: current_user, parameters: { post: @post }
       flash[:notice] = t('controllers.post.create')
     else
       flash[:alert] =  t('controllers.post.not_create')
@@ -33,6 +34,7 @@ class PostsController < ApplicationController
   def update
     @profile = current_user.profile
     if @post.update(post_params)
+      @post.create_activity :update, owner: current_user, parameters: { post: @post }
       flash[:notice] = t('controllers.post.update')
       redirect_to profile_path(@post.profile.id)
     else
@@ -48,6 +50,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    @post.create_activity :destroy, owner: current_user, parameters: { post: @post }
     if @post.destroy
       flash[:notice] = t('controllers.post.destroy')
     else

@@ -1,0 +1,7 @@
+%p.card-text
+  = activity.owner.profile.full_name if activity.owner
+  added a new post titled
+  - if activity.trackable
+    = link_to activity.trackable.heading, activity.trackable
+  - else
+    = activity.parameters[:post] ? [activity.parameters[:post][:heading], ' (Removed Post)'].join : 'Removed Post'

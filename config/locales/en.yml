@@ -36,6 +36,7 @@ en:
       sign_up: 'Sign up'
       welcome: 'Welcome'
       profile: 'Profile'
+      activity: 'Friends Activities'
   shared:
     left_sidebar:
       birthday: 'Birthday:'

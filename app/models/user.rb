@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+  include PublicActivity::Model
+  tracked
   has_one :profile, dependent: :destroy
   has_one_attached :avatar
 
@@ -27,10 +29,14 @@ class User < ApplicationRecord
     end
   end
 
-  def friends
+  def friends_ids
     friends_i_sent_invitation = Invitation.where(user_id: id, confirmed: true).pluck(:friend_id)
     friends_i_got_invitation = Invitation.where(friend_id: id, confirmed: true).pluck(:user_id)
-    ids = friends_i_sent_invitation + friends_i_got_invitation
+    friends_i_sent_invitation + friends_i_got_invitation
+  end
+
+  def friends
+    ids = friends_ids
     User.where(id: ids)
   end
 

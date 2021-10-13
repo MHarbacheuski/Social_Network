@@ -1,0 +1,6 @@
+= activity.owner.profile.full_name if activity.owner
+dislike the post titled
+- if activity.trackable
+  = link_to activity.trackable.post.heading, activity.trackable.post
+- else
+  Removed Post

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'friends/activities', to: 'activities#index', as: 'friends_activities'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get 'invitations/create'
   get 'invitations/update'
