@@ -9,7 +9,7 @@ class LikesController < ApplicationController
       flash[:notice] = t('controllers.like.create')
     else
       like = @post.likes.create(user_id: current_user.id)
-      like.create_activity :create, owner: current_user
+      like.create_activity :create, owner: current_user, parameters: { post: @post }
     end
     redirect_to profile_path(@post.profile.id)
   end
@@ -18,7 +18,7 @@ class LikesController < ApplicationController
     if !already_liked?
       flash[:notice] = t('controllers.like.notice')
     else
-      @like.create_activity :destroy, owner: current_user
+      @like.create_activity :destroy, owner: current_user, parameters: { post: @post }
       @like.destroy
     end
     redirect_to profile_path(@post.profile.id)

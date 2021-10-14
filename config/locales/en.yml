@@ -38,6 +38,15 @@ en:
       profile: 'Profile'
       activity: 'Friends Activities'
   shared:
+    general:
+      view: 'This page is only for viewing purposes, if you want to do any action then click on the profile name'
+      post:
+        like: 'Like'
+        dislike: 'Dislike'
+        comment: 'Comment'
+      profile:
+        interest:
+          edit: 'Edit Interest'
     left_sidebar:
       birthday: 'Birthday:'
       not_birthday: 'Birthday: not indicated'

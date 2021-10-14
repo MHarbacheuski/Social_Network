@@ -1,5 +1,9 @@
-.alert
-  - if notice
-    %p.notice.alert-success= notice
-  - if alert
-    %p.alert.alert-danger= alert
+- flash.each do |type, message|
+  .materialert{ class: "#{alert ? 'danger' : 'success'}"}
+    %i.material-icons check_circle
+    - if notice
+      %p.notice.alert-success= notice
+    - if alert
+      %p.alert.alert-danger= alert
+    %button.close-alert{type: "button", style: 'width: auto'} ×
+

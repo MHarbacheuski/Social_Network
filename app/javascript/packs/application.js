@@ -16,6 +16,11 @@ $(document).on('turbolinks:load', function () {
     var elems = document.querySelectorAll('.collapsible');
     var instances = M.Collapsible.init(elems, {});
 
+    $(".materialert > .close-alert").on('click', function () {
+        $(this).parent().hide('fade-out');
+    });
+
+    $('.tooltipped').tooltip();
 
     $('.dropdown-trigger').dropdown();
 

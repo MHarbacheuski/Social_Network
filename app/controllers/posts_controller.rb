@@ -54,7 +54,7 @@ class PostsController < ApplicationController
   def edit; end
 
   def show
-    @comment = @post.comments.find(params[:id])
+    #@comment = @post.comments.find(params[:id])
   end
 
   def destroy
@@ -74,7 +74,7 @@ class PostsController < ApplicationController
   private
 
   def find_post
-    @post = current_user.posts.find(params[:id])
+    @post = Post.find(params[:id])
   end
 
   def find_profile
