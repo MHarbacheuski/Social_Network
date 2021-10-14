@@ -44,6 +44,10 @@ en:
         like: 'Like'
         dislike: 'Dislike'
         comment: 'Comment'
+      search:
+        title: 'Search %{model}'
+        action: 'Search'
+        clear: 'Clear'
       profile:
         interest:
           edit: 'Edit Interest'

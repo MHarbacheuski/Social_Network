@@ -15,7 +15,8 @@ class ProfilesController < ApplicationController
   def show
     @users = User.all
     @user = @profile.user
-    @posts = @profile.posts
+    @q = @profile.posts.ransack(params[:q])
+    @posts = @q.result(distinct: true)
   end
 
   def edit

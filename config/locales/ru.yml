@@ -44,6 +44,10 @@ ru:
         like: 'нравиться'
         dislike: 'неприязнь'
         comment: 'комментарий'
+      search:
+        title: 'Поиск %{model}'
+        action: 'Поиск'
+        clear: 'Прозрачный'
       profile:
         interest:
           edit: 'Изменить интерес'

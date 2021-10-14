@@ -40,6 +40,8 @@ gem 'elasticsearch', '~> 7.13.3'
 gem 'searchkick'
 
 gem 'kaminari'
+gem 'ransack'
+gem 'ransack_memory'
 
 gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
 gem 'figaro'

@@ -1,4 +1,23 @@
 %div{ style:"margin: 30px" }
+.card-panel
+  .card-content
+    .card-title
+      %strong= t('shared.general.search.title', model: 'Posts')
+    = search_form_for @q, url: profile_path do |f|
+      .row
+        .col.s5
+          = f.hidden_field :id, value: @profile.id
+          .input-field
+            = f.label :heading_cont
+            = f.search_field :heading_cont
+        .col.s5
+          .input-field
+            = f.label :content_cont
+            = f.search_field :content_cont
+      .row
+        .col
+          = f.submit t('shared.general.search.action'), class: 'waves-effect waves-light btn'
+          = clear_filter title: t('shared.general.search.clear'), class: 'waves-effect waves-light btn', data: {confirm: 'Do you want to clear all filters?', my_data: 'something'}
 - if @posts.present?
   - @posts.order(created_at: :desc).each do |post|
     .post-container
