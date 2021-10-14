@@ -29,12 +29,14 @@
             class: "waves-effect waves-light btn-small"
         %br/
         .card-panel.hoverable
+          %i{style: 'font-size: 18px', class: 'material-icons'} event
           - if @user.profile.birthday
             = t('shared.left_sidebar.birthday')
             = @user.profile.birthday
           - else
             = t('shared.left_sidebar.not_birthday')
           %br
+          %i{style: 'font-size: 18px', class: 'material-icons'} gps_fixed
           - if @user.profile.locate.presence
             = t('shared.left_sidebar.locate')
             = @user.profile.locate
@@ -64,22 +66,24 @@
           .folding-header
             %i.material-icons settings
             %span= link_to t('shared.left_sidebar.edit_profile'), edit_profile_path(current_user.profile.id), style: "color: black;"
-    - if @user.interests.presence
-      %p.center-content
-      .script_interests
-        - if current_user == @user
-          = t('shared.left_sidebar.my_interests')
-          = link_to edit_users_interest_path(user_id: current_user) do
-            %i.material-icons edit
+    .card-panel
+      .card-content
+        - if @user.interests.presence
+          %p.center-content
+          .script_interests
+            - if current_user == @user
+              = t('shared.left_sidebar.my_interests')
+              = link_to edit_users_interest_path(user_id: current_user), { class: 'tooltipped', 'data-position': 'bottom', 'data-tooltip': t('shared.general.profile.interest.edit')} do
+                %i.material-icons edit
+            - else
+              #{@user.profile.first_name} #{t('shared.left_sidebar.interests')}
+          .panel-menu.item
+            - @user.interests.each do |interest|
+              %span.label.info= interest.title
         - else
-          #{@user.profile.first_name} #{t('shared.left_sidebar.interests')}
-      .panel-menu.item
-        - @user.interests.each do |interest|
-          %span.label.info= interest.title
-    - else
-      .script_interests
-        - if current_user == @user
-          = t('shared.left_sidebar.not_interests')
-          = link_to edit_users_interest_path(user_id: current_user) do
-            %i.material-icons edit
+          .script_interests
+            - if current_user == @user
+              = t('shared.left_sidebar.not_interests')
+              = link_to edit_users_interest_path(user_id: current_user), { class: 'tooltipped', 'data-position': 'bottom', 'data-tooltip': 'Edit Interest'} do
+                %i.material-icons edit
 

@@ -11,15 +11,26 @@ class CommentsController < ApplicationController
 
   def create
     @comment = current_user.comments.build(comment_params)
-    if @comment.save
-      redirect_to profile_path(@post.profile), notice: t('controllers.comment.success')
-    else
-      redirect_to profile_path(@post.profile), notice: t('controllers.comment.alert_create')
+    respond_to do |format|
+      if @comment.save
+        @comment.create_activity :create, owner: current_user, parameters: { post: @post }
+        format.js
+        format.html do
+          redirect_to profile_path(@post.profile), notice: t('controllers.comment.success')
+        end
+        format.json { head :no_content }
+      else
+        format.js
+        format.html do
+          redirect_to profile_path(@post.profile), notice: t('controllers.comment.alert_create')
+        end
+      end
     end
   end
 
   def destroy
     respond_to do |format|
+      @comment.create_activity :destroy, owner: current_user, parameters: { post: @post }
       if @comment.destroy
         format.js
         format.html { redirect_to @comment, notice: t('controllers.comment.success') }
@@ -32,6 +43,7 @@ class CommentsController < ApplicationController
 
   def update
     if @comment.update(comment_params)
+      @comment.create_activity :update, owner: current_user, parameters: { post: @post }
       flash[:notice] = t('controllers.comment.alert_update')
       redirect_to profile_path(@post.profile)
     else

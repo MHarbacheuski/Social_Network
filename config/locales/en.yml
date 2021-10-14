@@ -36,7 +36,21 @@ en:
       sign_up: 'Sign up'
       welcome: 'Welcome'
       profile: 'Profile'
+      activity: 'Friends Activities'
   shared:
+    general:
+      view: 'This page is only for viewing purposes, if you want to do any action then click on the profile name'
+      post:
+        like: 'Like'
+        dislike: 'Dislike'
+        comment: 'Comment'
+      search:
+        title: 'Search %{model}'
+        action: 'Search'
+        clear: 'Clear'
+      profile:
+        interest:
+          edit: 'Edit Interest'
     left_sidebar:
       birthday: 'Birthday:'
       not_birthday: 'Birthday: not indicated'
@@ -54,6 +68,10 @@ en:
       interests: 'Interests'
       not_interests: 'Interests empty'
       wait_friendship: 'Waiting for a response from friendship'
+      friends:
+        all: 'All'
+        online: 'Online'
+        offline: 'Offline'
     right_sidebar:
       my_friends: 'My Friends'
       delete_friend: 'Delete Friend'

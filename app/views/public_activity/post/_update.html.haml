@@ -1,0 +1,11 @@
+%p.card-text
+  = activity.owner.profile.full_name if activity.owner
+  updated post
+  - if activity.trackable
+    = link_to activity.trackable.heading, activity.trackable
+  - else
+    - post = activity.parameters[:post]
+    - if post.present? && Post.find_by_id(post[:id]).present?
+      = [post[:heading], ' (Removed Post)'].join
+    - else
+      Removed Post

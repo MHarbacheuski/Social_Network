@@ -1,0 +1,8 @@
+%p.card-text
+  = activity.owner.profile.full_name if activity.owner
+  removed a post titled
+  - post = activity.parameters[:post]
+  - if post.present? && activity.key == 'post.destroy'
+    = [activity.parameters[:post][:heading], ' (Removed Post)'].join
+  - else
+    Removed Post

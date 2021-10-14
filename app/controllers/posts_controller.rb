@@ -23,6 +23,11 @@ class PostsController < ApplicationController
     @profile = current_user.profile
     @post = current_user.posts.create(post_params)
     if @post.save
+      if current_user.profile.id == params[:profile_id]
+        @post.create_activity :create, owner: current_user, parameters: { post: @post }
+      else
+        @post.create_activity key: 'post.profile.create', owner: current_user, parameters: { post: @post }
+      end
       flash[:notice] = t('controllers.post.create')
     else
       flash[:alert] =  t('controllers.post.not_create')
@@ -33,6 +38,11 @@ class PostsController < ApplicationController
   def update
     @profile = current_user.profile
     if @post.update(post_params)
+      if current_user.profile.id == params[:profile_id]
+        @post.create_activity :update, owner: current_user, parameters: { post: @post }
+      else
+        @post.create_activity key: 'post.profile.update', owner: current_user, parameters: { post: @post }
+      end
       flash[:notice] = t('controllers.post.update')
       redirect_to profile_path(@post.profile.id)
     else
@@ -44,10 +54,15 @@ class PostsController < ApplicationController
   def edit; end
 
   def show
-    @comment = @post.comments.find(params[:id])
+    #@comment = @post.comments.find(params[:id])
   end
 
   def destroy
+    if current_user.profile.id == params[:profile_id]
+      @post.create_activity :destroy, owner: current_user, parameters: { post: @post }
+    else
+      @post.create_activity key: 'post.profile.destroy', owner: current_user, parameters: { post: @post }
+    end
     if @post.destroy
       flash[:notice] = t('controllers.post.destroy')
     else
@@ -59,7 +74,7 @@ class PostsController < ApplicationController
   private
 
   def find_post
-    @post = current_user.posts.find(params[:id])
+    @post = Post.find(params[:id])
   end
 
   def find_profile

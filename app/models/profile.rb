@@ -24,4 +24,8 @@ class Profile < ApplicationRecord
       second_name: second_name
     }
   end
+
+  def full_name
+    [first_name, second_name].join(' ')
+  end
 end

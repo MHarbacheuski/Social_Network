@@ -1,4 +1,23 @@
 %div{ style:"margin: 30px" }
+.card-panel
+  .card-content
+    .card-title
+      %strong= t('shared.general.search.title', model: 'Posts')
+    = search_form_for @q, url: profile_path do |f|
+      .row
+        .col.s5
+          = f.hidden_field :id, value: @profile.id
+          .input-field
+            = f.label :heading_cont
+            = f.search_field :heading_cont
+        .col.s5
+          .input-field
+            = f.label :content_cont
+            = f.search_field :content_cont
+      .row
+        .col
+          = f.submit t('shared.general.search.action'), class: 'waves-effect waves-light btn'
+          = clear_filter title: t('shared.general.search.clear'), class: 'waves-effect waves-light btn', data: {confirm: 'Do you want to clear all filters?', my_data: 'something'}
 - if @posts.present?
   - @posts.order(created_at: :desc).each do |post|
     .post-container
@@ -27,14 +46,15 @@
           %div
             = image_tag post.picture.url if post.picture?
         .card-body-comments.new{ :id => "post-id-#{post.id}" }
-          = link_to new_post_comment_path(post), method: :get, remote: true do
+          = link_to new_post_comment_path(post),  { class: 'tooltipped', 'data-position': 'bottom', 'data-tooltip': t('shared.general.post.comment')}, method: :get, remote: true do
             %i.material-icons mode_comment
+          = post.comments.count
           - pre_like = post.likes.find { |like| like.user_id == current_user.id}
           - if pre_like
-            = link_to post_like_path(post, pre_like), method: :delete do
+            = link_to post_like_path(post, pre_like), { class: 'tooltipped', 'data-position': 'bottom', 'data-tooltip': t('shared.general.post.like')}, method: :delete do
               %i.material-icons thumb_down
           - else
-            = link_to post_likes_path(post), method: :post do
+            = link_to post_likes_path(post), { class: 'tooltipped', 'data-position': 'bottom', 'data-tooltip': t('shared.general.post.dislike')}, method: :post do
               %i.material-icons thumb_up
           = post.likes.count
         .card-footer

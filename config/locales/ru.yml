@@ -36,7 +36,21 @@ ru:
       sign_up: 'Регистрация'
       welcome: 'Привет'
       profile: 'Профиль'
+      activity: 'Мероприятия для друзей'
   shared:
+    general:
+      view: 'Эта страница предназначена только для просмотра, если вы хотите выполнить какое-либо действие, нажмите на имя профиля'
+      post:
+        like: 'нравиться'
+        dislike: 'неприязнь'
+        comment: 'комментарий'
+      search:
+        title: 'Поиск %{model}'
+        action: 'Поиск'
+        clear: 'Прозрачный'
+      profile:
+        interest:
+          edit: 'Изменить интерес'
     left_sidebar:
       birthday: 'Дата Рождения:'
       delete_friend: 'Удалить Друга'
@@ -54,6 +68,10 @@ ru:
       interests: 'Интересы'
       not_interests: 'Нету интересов'
       wait_friendship: 'Жду ответа от дружбы'
+      friends:
+        all: 'Все'
+        online: 'Друзья онлайн'
+        offline: 'Offline Друзья'
     right_sidebar:
       my_friends: 'Мои Друзья'
       delete_friend: 'Удалить Друга'

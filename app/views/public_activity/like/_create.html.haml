@@ -1,0 +1,13 @@
+= activity.owner.profile.full_name if activity.owner
+liked a post titled
+
+- if activity.trackable
+  = link_to activity.trackable.post.heading, activity.trackable.post
+- else
+  - post = activity.parameters[:post]
+  - if post.present?
+    = link_to activity.parameters[:post][:heading], activity.parameters[:post]
+  - elsif post.present? && Post.find_by_id(post[:post][:id]).nil?
+    = [activity.parameters[:post][:heading], ' (Removed Post)'].join
+  - else
+    Removed Post

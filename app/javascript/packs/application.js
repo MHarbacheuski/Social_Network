@@ -12,6 +12,16 @@ ActiveStorage.start()
 
 $(document).on('turbolinks:load', function () {
     console.log("V");
+
+    var elems = document.querySelectorAll('.collapsible');
+    var instances = M.Collapsible.init(elems, {});
+
+    $(".materialert > .close-alert").on('click', function () {
+        $(this).parent().hide('fade-out');
+    });
+
+    $('.tooltipped').tooltip();
+
     $('.dropdown-trigger').dropdown();
 
     $(function() {
@@ -48,6 +58,3 @@ $(document).on('turbolinks:load', function () {
         })
     })
 });
-
-
-

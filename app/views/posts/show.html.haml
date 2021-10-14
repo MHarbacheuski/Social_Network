@@ -1,4 +1,7 @@
 - content_for(:title, 'Post')
+%h6
+  = t('shared.general.view')
+  = link_to @post.profile.full_name, @post.profile
 .d-flex.justify-content-between
   .container.col-lg-6.d-flex.justify-content-between.flex-row.w-stretch
     .w-100.mb-5
@@ -7,7 +10,7 @@
           %div
             %div
               = link_to @post.user, class: "text-decoration-none" do
-                = image_tag(current_user.avatar, class: "rounded-circle mr-2", size: "25x25", alt: "Profile pic")
+                = image_tag(current_user.avatar, class: "rounded-circle mr-2", size: "25x25", alt: "Profile pic") if current_user.avatar.attached?
               %strong
                 %span{ style: "font-size:0.9rem" }= @post.heading
               %br/
@@ -18,10 +21,11 @@
               %span.content
                 = @post.content
                 = image_tag @post.picture.url if @post.picture?
-            .dropdown-menu
-              = link_to "Delete post", post_path(@post), method: :delete, data: { confirm: "Are you sure you want to delete this post?" },
-                 class: "dropdown-item"
-              = link_to "Edit post", edit_post_path(id: @post.id)
+            - if false # This page is informative only, setted to false to avoi interact
+              .dropdown-menu
+                = link_to "Delete post", post_path(@post), method: :delete, data: { confirm: "Are you sure you want to delete this post?" },
+                  class: "dropdown-item"
+                = link_to "Edit post", edit_post_path(id: @post.id)
         .mt-5
           %hr.solid/
           - @post.comments.order(created_at: :desc).each do |comment|
@@ -30,15 +34,16 @@
                 %div
                   %div
                     = link_to comment.user, class: "text-decoration-none" do
-                      = image_tag(comment.user.avatar, class: "rounded-circle mr-2", size: "25x25", alt: "Profile pic")
+                      = image_tag(comment.user.avatar, class: "rounded-circle mr-2", size: "25x25", alt: "Profile pic") if comment.user.avatar.attached?
                     %strong
-                      %span{ style: "font-size:0.9rem" }= comment.user.username
+                      %span{ style: "font-size:0.9rem" }= comment.user.profile.full_name
                     %small.text-muted.ml-1{ style: "font-size:0.7rem" }
                       \.
                       %span.ml-1= time_ago_in_words(comment.created_at)
               .mt-2.comment-img
                 = comment.body
-              .dropdown-menu
-                = link_to "Delete comment", post_comment_path(@post, comment), method: :delete,
-                 data: { confirm: "Are you sure you want to delete this comment?" }, class: "dropdown-item"
-              %hr.solid/
+              - if false # set to false to avoid interact in this page
+                .dropdown-menu
+                  = link_to "Delete comment", post_comment_path(@post, comment), method: :delete,
+                  data: { confirm: "Are you sure you want to delete this comment?" }, class: "dropdown-item"
+                %hr.solid/

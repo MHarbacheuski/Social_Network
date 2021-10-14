@@ -39,6 +39,10 @@ gem 'carrierwave'
 gem 'elasticsearch', '~> 7.13.3'
 gem 'searchkick'
 
+gem 'kaminari'
+gem 'ransack'
+gem 'ransack_memory'
+
 gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
 gem 'figaro'
 gem 'fog'
@@ -54,6 +58,8 @@ gem 'redis'
 gem 'whenever', require: false
 
 gem 'rails_12factor', group: :production
+
+gem 'public_activity'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
