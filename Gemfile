@@ -39,6 +39,8 @@ gem 'carrierwave'
 gem 'elasticsearch', '~> 7.13.3'
 gem 'searchkick'
 
+gem 'kaminari'
+
 gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
 gem 'figaro'
 gem 'fog'
